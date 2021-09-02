@@ -80,6 +80,14 @@ $route['Dashboard/admin/data/user/add'] = 'UsersController/tambah_user';
 $route['Dashboard/admin/data/user/edit/(:any)'] = 'UsersController/edit_user/$1';
 $route['Dashboard/admin/data/user/list/bin'] = 'UsersController/viewbin';
 
+$route['Dashboard/admin/import'] = 'UsersController/import';
+$route['Dashboard/admin/import_excel'] = 'UsersController/import_data';
+$route['Dashboard/admin/export'] = 'UsersController/export';
+$route['Dashboard/admin/export_data'] = 'UsersController/export_data';
+
+$route['Dashboard/admin/galeri'] = 'UsersController/galeri';
+$route['Dashboard/admin/upload_galeri'] = 'UsersController/upload_galeri';
+
 $route['Dashboard/admin/data/anggota/list'] = 'AnggotaController';
 $route['Dashboard/admin/data/anggota/add'] = 'AnggotaController/tambah_anggota';
 $route['Dashboard/admin/data/anggota/all'] = 'AnggotaController/all';

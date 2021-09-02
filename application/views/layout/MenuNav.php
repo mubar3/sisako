@@ -13,6 +13,24 @@
     </a>
   </li>
   <?php } ?>
+  <li>
+    <a href="<?php echo base_url('Dashboard/admin/galeri'); ?>">
+      <i class="fa fa-file"></i> <span>GALERI</span>
+
+    </a>
+  </li>
+  <li>
+    <a href="<?php echo base_url('Dashboard/admin/import'); ?>">
+      <i class="fa fa-file"></i> <span>IMPORT</span>
+
+    </a>
+  </li>
+  <li>
+    <a href="<?php echo base_url('Dashboard/admin/export'); ?>">
+      <i class="fa fa-file"></i> <span>EXPORT</span>
+
+    </a>
+  </li>
 
   <li>
     <a href="#">

@@ -41,6 +41,8 @@ class AnggotaController extends CI_Controller {
   public function all()
   {
 		$address = $this->session->userdata('where');
+		// print_r($address);
+		// die();
 		$where= array(
 			'visible' => 1,
 		);

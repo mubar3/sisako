@@ -16,7 +16,33 @@ class m_users extends CI_Model
 	    return $query;
 	}
 
+	// public function insert($data){
+	// 	$insert = $this->db->insert_batch('data', $data);
+	// 	if($insert){
+	// 		return true;
+	// 	}
+	// }
 
+	public function getData($table,$where){
+		$this->db->select('*');
+		return $this->db->get_where($table,$where)->result();
+	}
+
+	public function getDataall(){
+		$address = $this->session->userdata('where');
+		// print_r($address);
+		// die();
+		$where= array(
+			'visible' => 1,
+		);
+
+		$this->db->select('*');
+		$this->db->where($address);
+		$this->db->where($where);
+		return $this->db->get('tb_pramuka')->result();
+	}
+
+	
 	function tampil_data_bin()
 	{
 		$this->db->select("*");
