@@ -36,7 +36,31 @@ class UsersController extends CI_Controller {
     	$this->load->view('layout/wrapper', $data);
   }
 
+  public function agenda()
+  { 
 
+        $this->load->model('Globalmodel', 'modeldb'); 
+        $data_calendar = $this->modeldb->get_list('calendar');
+        $calendar = array();
+        foreach ($data_calendar as $key => $val) 
+        {
+            $calendar[] = array(
+                'id'    => intval($val->id), 
+                'title' => $val->title, 
+                'description' => trim($val->description), 
+                'start' => date_format( date_create($val->start_date) ,"Y-m-d H:i:s"),
+                'end'   => date_format( date_create($val->end_date) ,"Y-m-d H:i:s"),
+                'color' => $val->color,
+            );
+        }
+
+        $data = array();
+        $data['get_data']           = json_encode($calendar);
+    // $this->load->view('layout/header');
+    $this->load->view('agenda',$data);
+    // $this->load->view('layout/MenuNav');
+    // $this->load->view('layout/footer');
+  }
 
   public function galeri()
   {	
@@ -49,6 +73,18 @@ class UsersController extends CI_Controller {
   	// $this->load->view('layout/MenuNav');
   	$this->load->view('layout/footer');
   }
+
+  function delete_galeri(){
+        $id = $_GET['id'];
+        $status = 0;
+
+        $where = array(
+            'id_galeri' => $id
+        );
+        $this->m_users->hapus_data($where,'tb_galeri');
+
+        echo 'succeed';
+    }
 
   public function upload_galeri()
   {	

@@ -117,10 +117,10 @@
       </div>
     </div> -->
 
-    <div class="box">
+    <div id="row-<?= $data->id_galeri ?>" class="box">
       <div class="boxInner">
         <img src="<?php echo base_url('/assets/galeri/').$data->gambar ?>" />
-        <div class="titleBox"><?php echo $data->nama_acara ?></div>
+        <div class="titleBox"><?php echo $data->nama_acara ?> <a class=""><button class="btn btn-danger btn-sm" onClick="deleteDataGaleri(<?= $data->id_galeri ?>)"><i class="glyphicon glyphicon-trash"></i></button></a></div>
       </div>
     </div>
   <?php } ?>
@@ -131,3 +131,27 @@
 
 
 </div>
+
+<script>
+    function deleteDataGaleri(id) {
+        swal({
+          title: "Menghapus data",
+          text: "Apakah anda yakin menghapus data ini?",
+          type: "error",
+          showCancelButton: true,
+          confirmButtonClass: 'btn-danger',
+          confirmButtonText: 'Hapus',
+          closeOnConfirm: false,
+          closeOnCancel: true
+        },
+        function() {
+          //$.get('<?php //echo base_url('AnggotaController/hapus/'); ?>', {id:id}, function(data) {
+            $.get('<?php echo base_url('UsersController/delete_galeri/'); ?>', {id:id}, function(data) {
+              if (data == 'succeed') {
+                  $('#row-' + id).remove();
+                  swal("Dihapus!", "Data berhasil dihapus!", "success");
+              }
+            });
+        });
+    }
+</script>

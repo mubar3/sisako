@@ -14,6 +14,12 @@
   </li>
   <?php } ?>
   <li>
+    <a href="<?php echo base_url('Dashboard/admin/agenda'); ?>">
+      <i class="fa fa-file"></i> <span>AGENDA</span>
+
+    </a>
+  </li>
+  <li>
     <a href="<?php echo base_url('Dashboard/admin/galeri'); ?>">
       <i class="fa fa-file"></i> <span>GALERI</span>
 
