@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Globalmodel extends CI_Model 
+class Kalendermodel extends CI_Model 
 {
 	public function get_list($table, $where = FALSE )
 	{

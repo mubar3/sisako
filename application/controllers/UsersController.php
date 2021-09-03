@@ -39,8 +39,11 @@ class UsersController extends CI_Controller {
   public function agenda()
   { 
 
-        $this->load->model('Globalmodel', 'modeldb'); 
-        $data_calendar = $this->modeldb->get_list('calendar');
+        $this->load->model('Kalendermodel', 'modeldb'); 
+        $where= array(
+            'create_by' => $this->session->userdata('id_user')
+        );
+        $data_calendar = $this->modeldb->get_list('calendar',$where);
         $calendar = array();
         foreach ($data_calendar as $key => $val) 
         {
@@ -56,10 +59,10 @@ class UsersController extends CI_Controller {
 
         $data = array();
         $data['get_data']           = json_encode($calendar);
-    // $this->load->view('layout/header');
+    $this->load->view('layout/header');
     $this->load->view('agenda',$data);
     // $this->load->view('layout/MenuNav');
-    // $this->load->view('layout/footer');
+    $this->load->view('layout/footer');
   }
 
   public function galeri()

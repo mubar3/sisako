@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8" />
-    <title>Codeigniter Fullcalendar</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/css/bootstrap.min.css'; ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/css/style.css'; ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/font-awesome/css/font-awesome.min.css'; ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/add/fullcalendar/fullcalendar.css'; ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/add/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
-</head>
-<body>
-    
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-       
-          <center>
-              +
-              <a href="https://fullcalendar.io/">
-                <img id="logo" src="https://www.codeigniter.com/assets/images/ci-logo-white.png" width="58" height="48">
-            </a>
-        </center>
-    </div>
-</nav>        
+ 
 
-<div class="container">
-    <div class="page-content-wrapper">
-        <div class="page-content">
+        <div class="page-content" style="padding-right: 30px;padding-left: 30px;">
             <div class="alert notification" style="display: none;">
                 <button class="close" data-close="alert"></button>
                 <p></p>
@@ -81,7 +50,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2">Description</label>
                                             <div class="col-sm-10">
-                                                <textarea name="description" rows="3" class="form-control"  placeholder="Enter description"></textarea>
+                                              <!--   <textarea name="description" rows="3" class="form-control"  placeholder="Enter description"></textarea> -->
+                                                <input type="text" name="description" rows="3" class="form-control"  placeholder="Enter description">
                                             </div>
                                         </div>
 
@@ -138,13 +108,8 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-<script type="text/javascript" src="<?php echo base_url().'assets/plug/js/jquery.min.js'; ?>"></script>      
-<script type="text/javascript" src="<?php echo base_url().'assets/plug/js/moment.min.js'; ?>"></script>      
-<script type="text/javascript" src="<?php echo base_url().'assets/plug/js/bootstrap.min.js'; ?>"></script>      
-<script type="text/javascript" src="<?php echo base_url().'assets/plug/add/bootstrap-datepicker/js/bootstrap-datepicker.min.js'; ?>"></script>      
-<script type="text/javascript" src="<?php echo base_url().'assets/plug/add/fullcalendar/fullcalendar.js'; ?>"></script>      
+
+</div> 
 <script type="text/javascript">
     var get_data        = '<?php echo $get_data; ?>';
     var backend_url     = '<?php echo base_url(); ?>';
@@ -422,5 +387,3 @@
     }
 
 </script>
-</body>
-</html>

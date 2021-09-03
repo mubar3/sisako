@@ -6,7 +6,7 @@ class Calendar extends CI_Controller {
 	{
 		parent::__construct();
 		$this->table 		= 'calendar';
-		$this->load->model('Globalmodel', 'modeldb'); 
+		$this->load->model('Kalendermodel', 'modeldb'); 
 	}
 
 	public function index() 
@@ -43,6 +43,7 @@ class Calendar extends CI_Controller {
 			if($calendar_id == 0)
 			{
 				$param['create_at']   	= date('Y-m-d H:i:s');
+				$param['create_by']   	= $this->session->userdata('id_user');
 				$insert = $this->modeldb->insert($this->table, $param);
 
 				if ($insert > 0) 

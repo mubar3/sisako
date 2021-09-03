@@ -58,6 +58,18 @@
   <!-- <script src="<?php echo base_url()?>/assets/Chart.js/Chart.bundle.js"></script> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
+<?php
+$uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri_segments = explode('/', $uri_path);
+$count=count($uri_segments);
+$url_akhir=$count-1;
+if($uri_segments[$url_akhir]=="agenda"){ ?>
+  <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/css/bootstrap.min.css'; ?>"> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/css/style.css'; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/font-awesome/css/font-awesome.min.css'; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/add/fullcalendar/fullcalendar.css'; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plug/add/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'; ?>">
+  <?php } ?>
 
 </head>
 <body class="hold-transition skin-green sidebar-mini">
