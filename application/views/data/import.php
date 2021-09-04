@@ -22,13 +22,16 @@
                 <div class="alert alert-success alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   <h4><i class="icon fa fa-info-circle"></i> Informasi Penting</h4>
-                  Untuk melakukan penggungahan data kartanu melalui file excel.csv, harap mengikuti petunjuk berikut:
+                  Untuk melakukan penggungahan data melalui file excel.xls, harap mengikuti petunjuk berikut:
                   <div class="box-body">
                     <ol>
                       <li>Silahkan download contoh file excel.xls <a href="<?= base_url('assets/import_contoh/download.php?nama_file=example_data.xls'); ?>">disini</a></li>
                       <li>Silahkan isi data pelajar sesuai dengan kolom header/judul</li>
                       <li>kemudian simpan file excel dengan format file (.xls)</li>
-                      <li>silahkan pilih file yang telah disimpan</li>
+                      <li>silahkan pilih upload file yang telah disimpan</li>
+                      <li>Persiapkan file gambar dengan nama gambar sesuai dengan nama pada kolom "Gambar" pada image</li>
+                      <li>File gambar dikompres dengan ekstensi .zip</li>
+                      <li>silahkan upload file .zip yang telah dikompres</li>
                       <li>kemudian silahkan klik upload/unggah</li>
                     </ol>
                   </div>
@@ -39,6 +42,15 @@
                     <input type='file' class='form-control' name='file' required>
                   </div>
                 </div>
+              </div>
+
+              <div class='box-body'>
+                <div class='form-group'>
+                  <label class='col-sm-3 control-label'>Unggah File Zip Foto :</label>
+                  <div class='col-sm-8'>
+                    <input type='file' class='form-control' name='zip_file' required>
+                  </div>
+                </div>
                 <div class='form-group'>
                   <label class='col-sm-3 control-label'></label>
                   <div class='col-sm-6'>
@@ -47,6 +59,7 @@
                   </div>
                 </div>
               </div>
+
             </form>
             </div>
           </div>

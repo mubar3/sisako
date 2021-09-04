@@ -76,10 +76,14 @@ $route['public/anggota/edit/(:any)'] = 'PublicController/edit_anggota/$1';
 $route['public/anggota/update'] = 'PublicController/update';
 
 
-$route['Dashboard/admin/data/user/list'] = 'UsersController';
+$route['Dashboard/admin/data/user/listuser'] = 'UsersController';
 $route['Dashboard/admin/data/user/add'] = 'UsersController/tambah_user';
 $route['Dashboard/admin/data/user/edit/(:any)'] = 'UsersController/edit_user/$1';
 $route['Dashboard/admin/data/user/list/bin'] = 'UsersController/viewbin';
+
+$route['Dashboard/admin/import_rar'] = 'UsersController/import_rar';
+
+$route['Dashboard/admin/dawmload_zip_foto'] = 'UsersController/dawmload_zip_foto';
 
 $route['Dashboard/admin/import'] = 'UsersController/import';
 $route['Dashboard/admin/import_excel'] = 'UsersController/import_data';

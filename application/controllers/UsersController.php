@@ -45,20 +45,44 @@ class UsersController extends CI_Controller {
         );
         $data_calendar = $this->modeldb->get_list('calendar',$where);
         $calendar = array();
+         $calendarshow = array();
         foreach ($data_calendar as $key => $val) 
         {
             $calendar[] = array(
                 'id'    => intval($val->id), 
                 'title' => $val->title, 
                 'description' => trim($val->description), 
+                'start' => date_format( date_create($val->start_date) ,"Y-m-d "),
+                'end'   => date_format( date_create($val->end_date) ,"Y-m-d "),
+                'color' => $val->color,
+            );
+
+
+            $date = date_create($val->end_date);
+             
+            // print_r($date);
+            //  die();
+
+            // $date = date_create('2000-01-01 00:00:00');
+            date_add($date, date_interval_create_from_date_string('10 hour'));
+          
+            
+            // print_r(date_format($date, 'Y-m-d'));
+            //  die();
+
+            $calendarshow[] = array(
+                'id'    => intval($val->id), 
+                'title' => $val->title, 
+                'description' => trim($val->description), 
                 'start' => date_format( date_create($val->start_date) ,"Y-m-d H:i:s"),
-                'end'   => date_format( date_create($val->end_date) ,"Y-m-d H:i:s"),
+                'end'   => date_format($date, 'Y-m-d H:i:s'),
                 'color' => $val->color,
             );
         }
 
         $data = array();
         $data['get_data']           = json_encode($calendar);
+        $data['get_data_show']           = json_encode($calendarshow);
     $this->load->view('layout/header');
     $this->load->view('agenda',$data);
     // $this->load->view('layout/MenuNav');
@@ -171,6 +195,49 @@ public function import_dataa()
 		}
   }
 
+  public function import_rar()
+  {
+        $config['upload_path'] = './uploads'; //path upload
+        // $config['allowed_types'] = 'xls|xlsx|csv'; //tipe file yang diperbolehkan
+        $config['allowed_types'] = 'zip'; //tipe file yang diperbolehkan
+        $config['max_size'] = 10000; // maksimal sizze
+ 
+        $this->load->library('upload'); //meload librari upload
+        $this->upload->initialize($config);
+          
+        
+        $fileName = $_FILES['zip_file']['name'];
+        $this->load->library('upload', $config);
+         
+        if ( ! $this->upload->do_upload('zip_file'))
+        {
+            $params = array('error' => $this->upload->display_errors());
+            echo "gagal";
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            $full_path = $data['upload_data']['full_path'];
+             
+            /**** without library ****/
+            $zip = new ZipArchive;
+ 
+            if ($zip->open($full_path) === TRUE) 
+            {
+                $zip->extractTo(FCPATH.'/uploads/');
+                $zip->close();
+            }
+ 
+            $params = array('success' => 'Extracted successfully!');
+             echo "sukses";
+              $inputFileName = './uploads/'.$fileName;
+              unlink($inputFileName);
+        }
+         
+        // $this->load->view('file_upload_result', $params);
+    }
+  
+
   public function import_data()
   {
 
@@ -187,13 +254,56 @@ public function import_dataa()
           
         if(! $this->upload->do_upload('file') ){
             // echo $this->upload->display_errors();exit();
+            // print_r($filename);
+            // die();
             $this->session->set_flashdata('gagal','gagal');
             redirect('Dashboard/admin/import');
         }else{
 
-            $this->session->set_flashdata('sukses','sukses');
         }
-              
+        
+        $config2['upload_path'] = './assets/zip'; //path upload
+        // $config['allowed_types'] = 'xls|xlsx|csv'; //tipe file yang diperbolehkan
+        $config2['allowed_types'] = 'zip'; //tipe file yang diperbolehkan
+        // $config['max_size'] = 10000; // maksimal sizze
+ 
+        // $this->load->library('upload'); //meload librari upload
+        $this->upload->initialize($config2);
+          
+        
+        $filezip = $_FILES['zip_file']['name'];
+        $this->load->library('upload', $config2);
+         
+        if ( ! $this->upload->do_upload('zip_file'))
+        {
+
+            // print_r($filezip);
+            // die();
+            $params = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('gagal','gagal');
+            redirect('Dashboard/admin/import');
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            $full_path = $data['upload_data']['full_path'];
+             
+            /**** without library ****/
+            $zip = new ZipArchive;
+ 
+            if ($zip->open($full_path) === TRUE) 
+            {
+                $zip->extractTo(FCPATH.'/assets/img/foto/');
+                $zip->close();
+            }
+ 
+            $params = array('success' => 'Extracted successfully!');
+             echo "sukses";
+              $inputfilezip = './assets/zip/'.$filezip;
+              unlink($inputfilezip);
+        
+
+        //input excel
         $inputFileName = './assets/import_data/'.$fileName;
  
         try {
@@ -286,8 +396,40 @@ public function import_dataa()
 			    unlink($inputFileName); 
                       
             }
+
+
+            $this->session->set_flashdata('sukses','sukses');
+        }
             redirect('Dashboard/admin/import');
   }
+
+        private function _load_zip_lib()
+      {
+            $this->load->library('zip');
+        }
+      private function _archieve_and_download($filename)
+        {
+            // create zip file on server
+            $this->zip->archive(FCPATH.'/uploads/'.$filename);
+                 
+            // prompt user to download the zip file
+            $this->zip->download($filename);
+        }
+
+  public function dawmload_zip_foto()
+  {
+        // $this->load->library('zip');
+        $this->_load_zip_lib();
+
+        $where = array('visible' => 1);
+        $data=$this->m_users->getData('tb_pramuka',$where);
+        foreach ($data as $key) 
+        {
+            $this->zip->read_file(FCPATH.'/assets/img/foto/'.$key->image);
+        }
+        $this->_archieve_and_download('images.zip');
+
+    }
 
   public function export_data()
   {

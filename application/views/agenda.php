@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="portlet light bordered">
                         <div class="portlet-body">
-                            <div class="table-toolbar">
+                            <!-- <div class="table-toolbar">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="btn-group">
@@ -21,7 +21,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- place -->
                             <div id="calendarIO"></div>
                             <div class="modal fade" id="create_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -33,7 +33,7 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                               </button>
-                                              <h4 class="modal-title" id="myModalLabel">Create calendar event</h4>
+                                              <h4 class="modal-title" id="myModalLabel">Acara</h4>
                                           </div>
                                           <div class="modal-body">
 
@@ -41,22 +41,22 @@
                                                <div class="alert alert-danger" style="display: none;"></div>
                                            </div>
                                            <div class="form-group">
-                                            <label class="control-label col-sm-2">Title  <span class="required"> * </span></label>
+                                            <label class="control-label col-sm-2">Nama Acara  <span class="required"> * </span></label>
                                             <div class="col-sm-10">
                                                 <input type="text" name="title" class="form-control" placeholder="Title">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2">Description</label>
+                                            <label class="control-label col-sm-2">Deskripsi</label>
                                             <div class="col-sm-10">
                                               <!--   <textarea name="description" rows="3" class="form-control"  placeholder="Enter description"></textarea> -->
-                                                <input type="text" name="description" rows="3" class="form-control"  placeholder="Enter description">
+                                                <textarea type="text" name="description" rows="3" class="form-control"  placeholder="Enter description"> </textarea>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="color" class="col-sm-2 control-label">Color</label>
+                                            <label for="color" class="col-sm-2 control-label">Warna</label>
                                             <div class="col-sm-10">
                                                 <select name="color" class="form-control">
                                                     <option value="">Choose</option>
@@ -72,7 +72,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2">Start Date</label>
+                                            <label class="control-label col-sm-2">Mulai</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
                                                     <input type="text" name="start_date" class="form-control" readonly>
@@ -82,7 +82,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2">End Date</label>
+                                            <label class="control-label col-sm-2">Sampai</label>
                                             <div class="col-sm-10">
                                                 <div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
                                                     <input type="text" name="end_date" class="form-control" readonly>
@@ -95,7 +95,7 @@
                                     <div class="modal-footer">
                                         <a href="javascript::void" class="btn default" data-dismiss="modal">Cancel</a>
                                         <a class="btn btn-danger delete_calendar" style="display: none;">Delete</a>
-                                        <button type="submit" class="btn green">Submit</button>
+                                        <button type="submit" class="btn green">Simpan</button>
                                     </div>
                                 </form>
                             </div>
@@ -112,6 +112,7 @@
 </div> 
 <script type="text/javascript">
     var get_data        = '<?php echo $get_data; ?>';
+    var get_data_show        = '<?php echo $get_data_show; ?>';
     var backend_url     = '<?php echo base_url(); ?>';
 
     $(document).ready(function() {
@@ -146,7 +147,7 @@
                     editData(event);
                     deleteData(event);
                 },
-                events: JSON.parse(get_data)
+                events: JSON.parse(get_data_show)
             });
     });
 
@@ -296,7 +297,7 @@
         $('#create_modal input[name=start_date]').val(moment(event.start).format('YYYY-MM-DD'));
         $('#create_modal input[name=end_date]').val(moment(event.end).format('YYYY-MM-DD'));
         $('#create_modal input[name=title]').val(event.title);
-        $('#create_modal input[name=description]').val(event.description);
+        $('#create_modal textarea[name=description]').val(event.description);
         $('#create_modal select[name=color]').val(event.color);
         $('#create_modal .delete_calendar').show();
         $('#create_modal').modal('show');

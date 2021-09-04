@@ -33,6 +33,18 @@
               </div>
             </div>
 
+            <div style="margin: auto; width: 50%; padding: 10px;">
+                 <div class="panel panel-info">
+                  <div class="panel-heading"><i class="fa fa-file-excel-o"></i> DOWNLOAD FOTO SEMUA DATA TANPA PERIODE TANGGAL</div>
+                  <div class="panel-body" >
+                    <div class='form-group' >
+                        <div class='col-sm-9' >
+                    <center ><a target='blank' href='<?= base_url('Dashboard/admin/dawmload_zip_foto'); ?>' class="pull-right btn btn-flat bg-aqua"><i class="glyphicon glyphicon-download-alt"></i> Unduh Semua Data</a></center>
+                  </div></div>
+               </div>
+              </div>
+            </div>
+
             <!-- /.box-header -->
             <div class="box-body">
                   <div class="tab-content">
