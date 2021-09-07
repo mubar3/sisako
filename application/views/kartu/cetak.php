@@ -93,6 +93,10 @@
                 <input type="radio" name="select" value="2" class="flat">
             <label for="perempuan"> Kartu Belakang</label>
               </span>
+              <span style="background: yellow" class="input-group-addon">
+                <input type="radio" name="select" value="3" class="flat">
+            <label for="perempuan"> Depan dan Belakang</label>
+              </span>
             </div>
 
             </div>

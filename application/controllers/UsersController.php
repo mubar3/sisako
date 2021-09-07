@@ -410,7 +410,7 @@ public function import_dataa()
       private function _archieve_and_download($filename)
         {
             // create zip file on server
-            $this->zip->archive(FCPATH.'/uploads/'.$filename);
+            // $this->zip->archive(FCPATH.'/uploads/'.$filename);
                  
             // prompt user to download the zip file
             $this->zip->download($filename);

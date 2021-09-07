@@ -185,6 +185,8 @@ class KartuController extends CI_Controller {
 									);
 			if ($this->input->post('select')==1){
 				$this->load->view('kartu/kartu4', $data);
+			}elseif ($this->input->post('select')==3){
+				$this->load->view('kartu/kartu6', $data);
 			}else {
 				$this->load->view('kartu/kartu7', $data);
 			}
