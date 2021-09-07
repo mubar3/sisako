@@ -26,6 +26,7 @@
                   <div class="box-body">
                     <ol>
                       <li>Silahkan download contoh file excel.xls <a href="<?= base_url('assets/import_contoh/download.php?nama_file=example_data.xls'); ?>">disini</a></li>
+                      <li>Untuk kode agama, provinsi, kota dll bisa didawnload <a href="<?= base_url('assets/import_contoh/download.php?nama_file=code_data.xls'); ?>">disini</a></li>
                       <li>Silahkan isi data pelajar sesuai dengan kolom header/judul</li>
                       <li>kemudian simpan file excel dengan format file (.xls)</li>
                       <li>silahkan pilih upload file yang telah disimpan</li>

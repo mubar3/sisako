@@ -10,16 +10,16 @@
 <meta name="description" content="">
 
 
-<script src="https://www.kartanu.id/themekit/scripts/jquery.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/main.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/bootstrap-grid.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/style.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/glide.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/magnific-popup.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/content-box.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/contact-form.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/css/media-box.css">
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/skin.css">
+<script src="assets/beranda/jquery.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/main.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<link rel="stylesheet" href="assets/beranda/bootstrap-grid.css">
+<link rel="stylesheet" href="assets/beranda/style.css">
+<link rel="stylesheet" href="assets/beranda/glide.css">
+<link rel="stylesheet" href="assets/beranda/magnific-popup.css">
+<link rel="stylesheet" href="assets/beranda/content-box.css">
+<link rel="stylesheet" href="assets/beranda/contact-form.css">
+<link rel="stylesheet" href="assets/beranda/media-box.css">
+<link rel="stylesheet" href="assets/beranda/skin.css">
 <!-- <link rel="stylesheet" href="./assets/Jost-Web-Font-master/"> -->
 
 
@@ -618,19 +618,19 @@ Tersedia untuk Android & iOS
 <div class="footer-bar">
 <div class="container">
 <span style="font-size: 11px"><b>PT BAWANA CAHAYA ABADI © 2021</b></span>
-<span style="font-size: 11px"><b>Triptasoft © 2021 </b></span>
+<!-- <span style="font-size: 11px"><b>Triptasoft © 2021 </b></span> -->
 <!-- <span><img class="logo-default" src="media/logo-kartanu.png" alt="logo" /></span> -->
 </div>
 </div>
-<link rel="stylesheet" href="https://www.kartanu.id/themekit/media/icons/iconsmind/line-icons.min.css">
-<script src="https://www.kartanu.id/themekit/scripts/parallax.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/glide.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/magnific-popup.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/tab-accordion.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/imagesloaded.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/contact-form/contact-form.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/themekit/scripts/progress.js" type="1e5f3df9676402370f964842-text/javascript"></script>
-<script src="https://www.kartanu.id/media/custom.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<link rel="stylesheet" href="assets/beranda/line-icons.min.css">
+<script src="assets/beranda/parallax.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/glide.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/magnific-popup.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/tab-accordion.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/imagesloaded.min.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/contact-form/contact-form.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/progress.js" type="1e5f3df9676402370f964842-text/javascript"></script>
+<script src="assets/beranda/custom.js" type="1e5f3df9676402370f964842-text/javascript"></script>
 <script data-setting="codrop" src="../../themekit.dev/tools/sidebar/sidebar.js" type="1e5f3df9676402370f964842-text/javascript"></script>
 </footer>
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="1e5f3df9676402370f964842-|49" defer=""></script></body>

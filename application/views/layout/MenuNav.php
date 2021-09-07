@@ -23,10 +23,10 @@ if($uri_segments[$url_akhir]=="add"){ ?><li class="active"> <?php } else {?><li>
   <?php if ($this->session->userdata('role') == 1 || $this->session->userdata('role') == 0) { ?>
     <?php
 if($uri_segments[$url_akhir]=="listuser"){ ?><li class="active"> <?php } else {?><li><?php } ?>
-    <a href="<?php echo base_url('Dashboard/admin/data/user/listuser'); ?>">
+   <!--  <a href="<?php echo base_url('Dashboard/admin/data/user/listuser'); ?>">
       <i class="fa fa-user"></i> <span>User</span>
 
-    </a>
+    </a> -->
   </li>
   <?php } ?>
 
@@ -116,6 +116,7 @@ if($uri_segments[$url_akhir]=="trash"){ ?><li class="active"> <?php } else {?><l
     </ul>
   </li> -->
 
+   <?php if($this->session->userdata('role')==1){?>
     <?php
 if($uri_segments[$url_akhir]=="kartu" or $uri_segments[$url_akhir]=="unprint" or $uri_segments[$url_akhir]=="printed"){ ?><li class="active"> <?php } else {?><li><?php } ?>
     <a href="#">
@@ -137,7 +138,6 @@ if($uri_segments[$url_akhir]=="printed"){ ?><li class="active"> <?php } else {?>
         <a href="<?php echo base_url('Dashboard/admin/data/kartu/printed'); ?>"><i class="fa fa-check"></i> Sudah Cetak </a></li>
     </ul>
   </li>
-   <?php if($this->session->userdata('role')==0){?>
 
   <?php } ?>
 

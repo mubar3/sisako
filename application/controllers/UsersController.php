@@ -393,9 +393,10 @@ public function import_dataa()
                  $insert_query = $this->db->insert_string('tb_pramuka', $data);
 			    $insert_query = str_replace('INSERT INTO', 'INSERT IGNORE INTO', $insert_query);
 			    $this->db->query($insert_query);
-			    unlink($inputFileName); 
                       
             }
+            
+                unlink($inputFileName); 
 
 
             $this->session->set_flashdata('sukses','sukses');
