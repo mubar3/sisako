@@ -251,12 +251,13 @@ public function import_dataa()
  
         $this->load->library('upload'); //meload librari upload
         $this->upload->initialize($config);
+        $inputFileName = './assets/import_data/'.$fileName;
           
         if(! $this->upload->do_upload('file') ){
             // echo $this->upload->display_errors();exit();
             // print_r($filename);
             // die();
-            $this->session->set_flashdata('gagal','gagal');
+            $this->session->set_flashdata('gagal','Ekstensi excel bukan .xls');
             redirect('Dashboard/admin/import');
         }else{
 
@@ -279,8 +280,9 @@ public function import_dataa()
 
             // print_r($filezip);
             // die();
+            unlink($inputFileName);
             $params = array('error' => $this->upload->display_errors());
-            $this->session->set_flashdata('gagal','gagal');
+            $this->session->set_flashdata('gagal','Ekstensi file bukan .zip');
             redirect('Dashboard/admin/import');
         }
         else
@@ -293,6 +295,22 @@ public function import_dataa()
  
             if ($zip->open($full_path) === TRUE) 
             {
+                for($i = 0; $i < $zip->numFiles; $i++) 
+                    { 
+                        $OnlyFileName = $zip->getNameIndex($i);
+                        $FullFileName = $zip->statIndex($i);    
+
+                        if (!($FullFileName['name'][strlen($FullFileName['name'])-1] =="/"))
+                        {
+                            if (preg_match('#\.(jpg|jpeg|gif|png)$#i', $OnlyFileName))
+                            {}
+                            else{
+                                unlink($inputFileName);
+                                unlink($inputfilezip);
+                                $this->session->set_flashdata('gagal','file dalam zip bukan gambar');
+                                redirect('Dashboard/admin/import');} 
+                        }
+                    }
                 $zip->extractTo(FCPATH.'/assets/img/foto/');
                 $zip->close();
             }
@@ -304,7 +322,7 @@ public function import_dataa()
         
 
         //input excel
-        $inputFileName = './assets/import_data/'.$fileName;
+        
  
         try {
                 $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
@@ -343,6 +361,7 @@ public function import_dataa()
 					$string = "8912371963922";
 					$nia = preg_replace("/'/", "", $rowData[0][1]);
 					$nik = preg_replace("/'/", "", $rowData[0][33]);
+                    $no_hp = preg_replace("/'/", "", $rowData[0][11]);
 
                 $data = array(
                     "urut"=> $rowData[0][0],
@@ -356,7 +375,7 @@ public function import_dataa()
                     "tempat_lahir"=> $rowData[0][8],
                     "tanggal_lahir"=> $var,
                     "usia"=> $rowData[0][10],
-                    "no_hp"=> $rowData[0][11],
+                    "no_hp"=> $no_hp,
                     "alamat"=> $rowData[0][12],
                     "jk"=> $rowData[0][13],
                     "waktu"=> $timestamp,

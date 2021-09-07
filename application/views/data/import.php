@@ -4,12 +4,12 @@
     <section class="content">
                <?php if(!empty($this->session->FlashData('sukses'))){ ?>
           <div class="alert alert-info" role="alert">
-            data berhasil disimpan
+            <?php echo $this->session->flashdata('sukses'); ?>
           </div>
           <?php } 
            if(!empty($this->session->FlashData('gagal'))){ ?>
           <div class="alert alert-danger" role="alert">
-            data gagal disimpan
+            <?php echo $this->session->flashdata('gagal'); ?>
           </div>
           <?php } ?>
       <div class="row">
