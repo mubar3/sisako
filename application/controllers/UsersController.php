@@ -252,6 +252,11 @@ public function import_dataa()
         $this->load->library('upload'); //meload librari upload
         $this->upload->initialize($config);
         $inputFileName = './assets/import_data/'.$fileName;
+
+        if(preg_match('/\s/',$inputFileName)>=1){
+            $this->session->set_flashdata('gagal','Nama file excel memiliki spasi');
+            redirect('Dashboard/admin/import');
+        }
           
         if(! $this->upload->do_upload('file') ){
             // echo $this->upload->display_errors();exit();
