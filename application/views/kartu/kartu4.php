@@ -33,7 +33,7 @@ body {
 <!-- <div style="float: left; margin-left: 20px; margin-top:-13px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png');"> -->
   <div style=" padding: 25px; border-left: 4px dashed black; float: left; margin-left: 10px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
 
-  <img style="position: absolute;margin-left: 34px;margin-top: 107px; width: 105px; height: 130px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
+  <img style="position: absolute;margin-left: 34px;margin-top: 98px; width: 105px; height: 140px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
 
                 <table cellpadding="" cellspacing="" style="margin-top: -7px;padding-top: 110px;padding-left: 160px; font-family: Arial; font-size: 15px;color: black; width: 520px;height: 80px; line-height: 16px; text-align:left;position: absolute ;float: center">
                   <tr style="padding-left: 270px;">

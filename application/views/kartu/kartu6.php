@@ -1,6 +1,12 @@
         <html>
 
         <head>
+          <link href="//db.onlinewebfonts.com/c/f2ecc6ef740fcf60de095b0b087dd58d?family=OCR+A+Extended" rel="stylesheet" type="text/css"/>
+  <style>
+  @import url(//db.onlinewebfonts.com/c/f2ecc6ef740fcf60de095b0b087dd58d?family=OCR+A+Extended);
+  @font-face {font-family: "OCR A Extended"; src: url("//db.onlinewebfonts.com/t/f2ecc6ef740fcf60de095b0b087dd58d.eot"); src: url("//db.onlinewebfonts.com/t/f2ecc6ef740fcf60de095b0b087dd58d.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/f2ecc6ef740fcf60de095b0b087dd58d.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/f2ecc6ef740fcf60de095b0b087dd58d.woff") format("woff"), url("//db.onlinewebfonts.com/t/f2ecc6ef740fcf60de095b0b087dd58d.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/f2ecc6ef740fcf60de095b0b087dd58d.svg#OCR A Extended") format("svg"); }
+
+  </style>
           <title> SISAKO | Cetak</title>
           <link rel="icon" href="<?php echo base_url(); ?>assets/img/logo_sako.png" sizes="" type="image/png">
         </head>
@@ -25,7 +31,7 @@
         <body>
         <div style=" padding: 25px; float: left; margin-left: 10px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
 
-  <img style="position: absolute;margin-left: 34px;margin-top: 107px; width: 105px; height: 130px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
+  <img style="position: absolute;margin-left: 34px;margin-top: 98px; width: 105px; height: 140px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
 
                 <table cellpadding="" cellspacing="" style="margin-top: -7px;padding-top: 110px;padding-left: 160px; font-family: Arial; font-size: 15px;color: black; width: 520px;height: 80px; line-height: 16px; text-align:left;position: absolute ;float: center">
                   <tr style="padding-left: 270px;">
