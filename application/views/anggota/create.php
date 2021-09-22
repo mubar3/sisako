@@ -20,7 +20,9 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form id="form" action="<?php echo base_url(). 'AnggotaController/tambah_aksi'; ?>" method="post" enctype="multipart/form-data">
+              <!-- <h1>yaaaa</h1> -->
+              <?php echo form_open_multipart('AnggotaController/tambah_aksi');?>
+             
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>NIK &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
@@ -132,7 +134,7 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label> Nomor Gugus Depan &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
-                    <input  type="text" name="no_gudep" id="no_gudep" class="form-control required" placeholder="Nomor Gugus Depan"   minlength="5" maxlength="5">
+                    <input  type="text" name="no_gudep" id="no_gudep" class="form-control required" placeholder="Nomor Gugus Depan"   minlength="2" maxlength="10">
                   </div>
                 </div>
 
@@ -250,15 +252,18 @@
                 <div class="col-lg-6">
                  <div class="form-group">
                    <label>Upload Foto</label>
-                   <input required type="file" multiple="false" class="form-control" id="image-source">
-                   <input type="hidden" id="image" name="image">
+                   <input required type="file" name="upload_foto" class="form-control" id="image-source" onchange="previewImage();">
+                   <!-- <input type="hidden" id="image" name="image"> -->
                    <!-- onchange="previewImage();" -->
                    <!-- <input required type="file" name="image" multiple="false" class="form-control" id="image-src"> -->
                  </div>
+                 <!-- <div class="breadcrumb">
+                   <img style="height:200px" class="img-responsive" id="image-preview" alt=" No Image"/>
+                    <img style="" id="image-preview"/> -->
+                   <!-- <input type="checkbox" class="form_submit" required> -->
+                 <!-- </div>  -->
                  <div class="breadcrumb">
-                   <!-- <img style="height:200px" class="img-responsive" id="image-preview" alt=" No Image"/> -->
-                   <img style="" id="image-preview"/>
-                   <input type="checkbox" class="form_submit" required>
+                   <img style="height:200px" src="assets/img/no-image.jpg" class="img-responsive" id="image-preview" alt=" No Image"/>
                  </div>
                </div>
 
@@ -271,7 +276,6 @@
                 <div class="box-header with-border">
                   <h3 class="box-title">Pengalaman Organisasi</h3>
                 </div>
-                <!-- <form action="<?php echo base_url(). 'AnggotaController/tambah_aksi'; ?>" method="post" onsubmit="return validasi();" enctype="multipart/form-data"> -->
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label>1. Nama Organisasi</label>
@@ -335,6 +339,7 @@
                   </div>
                 </div>
 
+                  <button type="submit" class="btn btn-success form_submit">Simpan</button>
               </div>
             </div>
 
@@ -343,14 +348,13 @@
 
 
 
-                <div class="box-body">
+              <!--   <div class="box-body">
                 <div class="form-group">
                   <a href="<?php echo base_url('Dashboard/admin/data/anggota/all'); ?>"><input type="button" value="Kembali" class="btn btn-warning"></a>
                   <input type="reset" name="reset" value="Reset" class="btn btn-danger">
-                  <!-- <button type="button" class="btn btn-success form_submit">Simpan</button> -->
                   <input type="submit" name="submit" value="Simpan" class="btn btn-success" >
                 </div>
-              </div>
+              </div> -->
             </div>
 
               </div>
@@ -371,18 +375,18 @@
       $(document).ready(function () {
         var $image_crop;
 
-          $image_crop = $('#image-preview').croppie({
-              // enableExif: true,
-              viewport: {
-                  width: 150,
-                  height: 200,
-                  type: 'square' // square
-              },
-              boundary: {
-                  // width: 600,
-                  height: 200
-              }
-          });
+          // $image_crop = $('#image-preview').croppie({
+          //     // enableExif: true,
+          //     viewport: {
+          //         width: 150,
+          //         height: 200,
+          //         type: 'square' // square
+          //     },
+          //     boundary: {
+          //         // width: 600,
+          //         height: 200
+          //     }
+          // });
 
           $('#image-source').on('change', function () {
               var reader = new FileReader();
@@ -397,18 +401,18 @@
               // $('#imageModel').modal('show');
           });
 
-          $('.form_submit').on('click', function (ev) {
-            if (this.checked) {
-            $image_crop.croppie('result', {
-              type: 'canvas',
-              size: 'original'
-            }).then(function (resp) {
-              $('#image').val(resp);
-              // $('#form').submit();
-            });
-            }
-            // return false;
-          });
+          // $('.form_submit').on('click', function (ev) {
+          //   if (this.checked) {
+          //   $image_crop.croppie('result', {
+          //     type: 'canvas',
+          //     size: 'original'
+          //   }).then(function (resp) {
+          //     $('#image').val(resp);
+          //     // $('#form').submit();
+          //   });
+          //   }
+          //   // return false;
+          // });
 
           // $('.form_submit').on('click', function (ev) {
           //   $image_crop.croppie('result', {
@@ -607,8 +611,8 @@
         			},
         			no_gudep: {
                 digits: true,
-        				minlength:5,
-        				maxlength:5
+        				minlength:2,
+        				maxlength:10
         			}
         		}
           })

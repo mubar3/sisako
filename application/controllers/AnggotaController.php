@@ -9,8 +9,10 @@ class AnggotaController extends CI_Controller {
 		$this->load->model('m_anggota');
 		$this->load->model('m_dashboard');
 
-		$this->load->helper(array('form', 'url'));
+		// $this->load->helper(array('form', 'url'));
 
+    $this->load->helper('url', 'form'); 
+    $this->load->library('form_validation');
 
 		if($this->session->userdata('status') != "login"){
 			redirect("/");
@@ -677,7 +679,7 @@ public function edit_anggota($id)
 		$pangkalan = $this->input->post('pangkalan');
 		$nik = $this->input->post('nik');
 		$emoney = $this->input->post('emoney');
-		$im = $this->input->post('image');
+		// $im = $this->input->post('image');
 
 		$tahun = date('Y',strtotime($tanggal_lahir));
 		$bulan = date('m',strtotime($tanggal_lahir));
@@ -696,19 +698,85 @@ public function edit_anggota($id)
 		$no_thn = date('Y');
 		$imgname = str_replace('.', '-', $no_gudep);
 
+		$filename = $_FILES['upload_foto']['tmp_name'];
+
 		$image = $nia.'.jpg';
 
-		$img_arr_a = explode(";", $im);
-        $img_arr_b = explode(",", $img_arr_a[1]);
+						$config['file_name']=$image;
+						$config['upload_path'] = './assets/img/foto/';
+						$config['allowed_types'] = 'jpg|png|jpeg|gif';
+						$config['max_size'] = '100000'; // 0 = no file size limit
+						$config['overwrite'] = true;
+						$this->upload->initialize($config);
+						$this->load->library('upload', $config);
+						if(!$this->upload->do_upload('upload_foto'))
+          {
+          	// echo "gagal_upload";
+          	// die(); 
+          }else{
+         $data = $this->upload->data(); 
+				 $config['image_library'] = 'gd2';  
+         $config['source_image'] = './assets/img/foto/'.$image;  
+         $config['create_thumb'] = FALSE;  
+         $config['maintain_ratio'] = TRUE;  
+         $config['quality'] = '60%';
+         // $config['rotation_angle'] = '90';  
+         // $config['width'] = 400;  
+         // $config['height'] = 533;  
+         // $config['new_image'] = './assets/img/foto2/'.$image;  
+         // $this->load->library('image_lib', $config);  
+         // // $this->image_lib->clear(); 
+         // $this->image_lib->rotate();
+         // $this->image_lib->resize(); 
+         $imgdata=exif_read_data($this->upload->upload_path.$this->upload->file_name, 'IFD0');
+         list($width, $height) = getimagesize($filename);
+           if ($width >= $height){
+               $config['width'] = 400;
+           }
+           else{
+               $config['height'] = 533;
+           }
+           $config['master_dim'] = 'auto'; 
+         $config['new_image'] = './assets/img/foto/'.$image;  
+         $this->load->library('image_lib', $config);  
+         $this->image_lib->resize(); 
 
-        $data = base64_decode($img_arr_b[1]);
-        // $img_name = time();
+         $this->image_lib->clear(); 
+				 $config=array();
+				 $config['image_library'] = 'gd2';  
+         $config['source_image'] = './assets/img/foto/'.$image; 
 
-        file_put_contents($image, $data);
-        $img_file = addslashes(file_get_contents($image));
-				$img = imagecreatefromstring($data);
-				imagejpeg($img, './assets/img/foto/'.$image);
-				imagedestroy($img);
+          switch($imgdata['Orientation']) {
+                   case 3:
+                       $config['rotation_angle']='180';
+                       break;
+                   case 6:
+                       $config['rotation_angle']='270';
+                       break;
+                   case 8:
+                       $config['rotation_angle']='90';
+                       break;
+               }
+         $this->image_lib->initialize($config);
+         $this->image_lib->rotate();
+
+         		// print_r($config);
+          	// echo "berhasil_upload";
+          	// die();
+       		}	
+
+				// $img_arr_a = explode(";", $im);
+    //     $img_arr_b = explode(",", $img_arr_a[1]);
+
+    //     $data = base64_decode($img_arr_b[1]);
+    //     // $img_name = time();
+    //     echo $data;
+    //     die();
+    //     file_put_contents($image, $data);
+    //     $img_file = addslashes(file_get_contents($image));
+				// $img = imagecreatefromstring($data);
+				// imagejpeg($img, './assets/img/foto/'.$image);
+				// imagedestroy($img);
 				// echo $im;
 			$data_user = array(
 				'urut'						=> $no+1,
@@ -743,9 +811,10 @@ public function edit_anggota($id)
 				'image'									=> $image,
 				'nisn'									=> $nisn,
 				'pangkalan'							=> $pangkalan,
-				'nik'							=> $nik,
+				'nik'									=> $nik,
 				'emoney'							=> $emoney,
 				'visible'							=> 1,
+				'admin'								=> $this->session->userdata('id_user')
 
 				);
 
@@ -920,22 +989,84 @@ public function edit_anggota($id)
 
 		$imgname = str_replace('.', '-', $no_gudep);
 		$im = $_FILES['image']['name'];
+		$filename = $_FILES['image']['tmp_name'];
 
 		if ($im !== ""){
-			$config['file_name']=$image;
-			$config['upload_path'] = './assets/img/foto/';
-			$config['allowed_types'] = 'jpg|png|jpeg|gif';
-			$config['max_size'] = '100000'; // 0 = no file size limit
-			$config['overwrite'] = true;
-			$this->upload->initialize($config);
-			//$this->load->library('upload', $config);
-			if(!$this->upload->do_upload('image')){
-				$error = array('error' => $this->upload->display_errors());
-				print_r($error);
-			}else {
-				$upload_data = $this->upload->data();
-				$image = $upload_data['file_name'];
-			}
+			$image=$old_image;
+						$config['file_name']=$image;
+						$config['upload_path'] = './assets/img/foto/';
+						$config['allowed_types'] = 'jpg|png|jpeg|gif';
+						$config['max_size'] = '100000'; // 0 = no file size limit
+						$config['overwrite'] = true;
+						$this->upload->initialize($config);
+						$this->load->library('upload', $config);
+						if(!$this->upload->do_upload('image'))
+          {
+          	// echo "gagal_upload";
+          	// die(); 
+          }else{
+         $data = $this->upload->data(); 
+				 $config['image_library'] = 'gd2';  
+         $config['source_image'] = './assets/img/foto/'.$image;  
+         $config['create_thumb'] = FALSE;  
+         $config['maintain_ratio'] = TRUE;  
+         $config['quality'] = '60%';
+         // $config['rotation_angle'] = '90'; 
+
+         $imgdata=exif_read_data($this->upload->upload_path.$this->upload->file_name, 'IFD0');
+         list($width, $height) = getimagesize($filename);
+           if ($width >= $height){
+               $config['width'] = 400;
+           }
+           else{
+               $config['height'] = 533;
+           }
+           $config['master_dim'] = 'auto'; 
+         // $config['width'] = 400;  
+         // $config['height'] = 533;  
+         $config['new_image'] = './assets/img/foto/'.$image;  
+         $this->load->library('image_lib', $config);  
+         $this->image_lib->resize(); 
+
+         $this->image_lib->clear(); 
+				 $config=array();
+				 $config['image_library'] = 'gd2';  
+         $config['source_image'] = './assets/img/foto/'.$image; 
+
+          switch($imgdata['Orientation']) {
+                   case 3:
+                       $config['rotation_angle']='180';
+                       break;
+                   case 6:
+                       $config['rotation_angle']='270';
+                       break;
+                   case 8:
+                       $config['rotation_angle']='90';
+                       break;
+               }
+         $this->image_lib->initialize($config);
+         $this->image_lib->rotate();
+         		// print_r($config);
+          	// echo "berhasil_upload";
+          	// die();
+       		}	
+
+
+			// $config['file_name']=$image;
+			// $config['upload_path'] = './assets/img/foto/';
+			// $config['allowed_types'] = 'jpg|png|jpeg|gif';
+			// $config['max_size'] = '100000'; // 0 = no file size limit
+			// $config['overwrite'] = true;
+			// $this->upload->initialize($config);
+			// //$this->load->library('upload', $config);
+			// if(!$this->upload->do_upload('image')){
+			// 	$error = array('error' => $this->upload->display_errors());
+			// 	print_r($error);
+			// }else {
+			// 	$upload_data = $this->upload->data();
+			// 	$image = $upload_data['file_name'];
+			// }
+
 		}else {
 			$image = $old_image;
 		}

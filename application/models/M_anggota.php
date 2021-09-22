@@ -48,7 +48,7 @@ class M_Anggota extends CI_Model
 	function read_anggota($address,$where){
     $this->db->select('tb_pramuka.id AS id,no_gudep,nama_depan,tb_agama.agama AS agama,golongan_darah, tempat_lahir,tanggal_lahir,usia,no_hp,alamat,tb_jk.jk AS jk,villages.nama AS desa,districts.nama AS kecamatan,regencies.nama AS kabupaten,province.nama AS provinsi,waktu ,nama_organisasi1,status_perkawinan,jabatan1,tahun1,nama_organisasi2,jabatan2,tahun2,nama_organisasi3,jabatan3,tahun3,aktif,tb_golongan.golongan AS golongan,aktifitas_organisasi,image,qr_code,nia,nisn,pangkalan,print,nik,rt,rw,visible,tb_emoney.emoney AS emoney')
 		->from('tb_pramuka')
-		// ->where($address)
+		->where($address)
 		->where($where)
 		->order_by('waktu', 'DESC')
 		->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')
@@ -78,7 +78,7 @@ class M_Anggota extends CI_Model
 	function read_qr($where){
     $this->db->select('tb_pramuka.id AS id,no_gudep,nama_depan,tb_agama.agama AS agama,golongan_darah, tempat_lahir,tanggal_lahir,usia,no_hp,alamat,tb_jk.jk AS jk,villages.nama AS desa,districts.nama AS kecamatan,regencies.nama AS kabupaten,province.nama AS provinsi,waktu ,nama_organisasi1,status_perkawinan,jabatan1,tahun1,nama_organisasi2,jabatan2,tahun2,nama_organisasi3,jabatan3,tahun3,aktif,tb_golongan.golongan AS golongan,aktifitas_organisasi,image,qr_code,nia,nisn,pangkalan,print,nik,rt,rw,visible,tb_emoney.emoney AS emoney')
 		->from('tb_pramuka')
-		// ->where($address)
+		->where($address)
 		->where($where)
 		->order_by('waktu', 'DESC')
 		->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')

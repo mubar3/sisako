@@ -267,6 +267,10 @@ class Welcome extends CI_Controller {
 						'tb_pramuka.emoney' => 1,
 					);
 			}
+			$where = array(
+					'admin' => $idku,
+					// 'visible' => 1,
+				);
 			$data_session = array(
 				'nama' => $username,
 				'status' => "login",
