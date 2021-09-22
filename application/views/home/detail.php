@@ -92,7 +92,7 @@
                       <td width="20%">N.I.A</td>
                       <td width="10px">:</td>
                        <td >
-                         <?
+                         <?php
                          $nia1 = substr($e->nia,0,4);
                          $nia2 = substr($e->nia,4,4);
                          $nia3 = substr($e->nia,8,4);
@@ -122,7 +122,7 @@
                     <tr>
                       <td width="20%">Nomor Gugus Depan</td>
                       <td width="10px">:</td>
-                       <td>  <? echo substr_replace($e->no_gudep,".",2, 0);?></td>
+                       <td>  <?php echo substr_replace($e->no_gudep,".",2, 0);?></td>
                     </tr>
 
                     <tr>
