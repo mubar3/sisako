@@ -25,14 +25,14 @@
              
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label>NIK &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
-                    <input type="text" name="nik" id="nik" class="form-control required" placeholder="NIK"  minlength="16" maxlength="16">
+                    <label>NIK &nbsp <a style="font-size:14px; color:lightgreen;"></a></label>
+                    <input type="text" name="nik" id="nik" class="form-control " placeholder="NIK"  minlength="16" maxlength="16">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label>NISN/NSS/NSM &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
-                    <input type="text" name="nisn" class="form-control" placeholder="NISN/NSS/NSM" required>
+                    <label>NISN/NSS/NSM &nbsp <a style="font-size:14px; color:lightgreen;"></a></label>
+                    <input type="text" name="nisn" class="form-control" placeholder="NISN/NSS/NSM">
                   </div>
                 </div>
                 <div class="col-lg-6">

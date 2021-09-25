@@ -26,7 +26,7 @@ class M_Dashboard extends CI_Model
 	function get_total(){
 		$address = $this->session->userdata('where');
 			$where= array(
-				'aktif' => 1,
+				// 'aktif' => 1,
 				'visible' => 1,
 			);
 		$this->db->select('DATE(waktu) as waktu, count(*) as total');

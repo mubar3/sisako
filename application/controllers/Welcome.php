@@ -96,7 +96,8 @@ class Welcome extends CI_Controller {
 		$password = $this->input->post('password');
 		$where = array(
 			'username' => $username,
-			'password' => md5($password)
+			'password' => md5($password),
+			'status'	=>1
 			);
 		$cek = $this->user->cek_login("users",$where)->num_rows();
 		if($cek > 0)
@@ -121,7 +122,7 @@ class Welcome extends CI_Controller {
 			$date = new DateTime("now");
 			$timestamp = $date->format('Y-m-d');
 
-			if ($role==0) {
+			if ($role==1) {
 				$where = array(
 					'provinsi' => $provinsi,
 					// 'visible' => 1,
@@ -150,7 +151,7 @@ class Welcome extends CI_Controller {
 					'tb_anggota.emoney' => 1,
 					'visible' => 1,
 				);
-			}elseif ($role==1) {
+			}elseif ($role==2) {
 				$where = array(
 					'provinsi' => $provinsi,
 					// 'visible' => 1,
@@ -181,7 +182,7 @@ class Welcome extends CI_Controller {
 				);
 
 			}
-			elseif ($role==2) {
+			elseif ($role==3) {
 			$where = array(
 				'kabupaten' => $kabupaten,
 				// 'visible' => 1,
@@ -211,7 +212,7 @@ class Welcome extends CI_Controller {
 				'visible' => 1,
 			);
 		}
-			 elseif ($role==3) {
+			 elseif ($role==4) {
 				$where = array(
 					'kecamatan' => $address,
 					// 'visible' => 1,
@@ -240,7 +241,7 @@ class Welcome extends CI_Controller {
 					'tb_pramuka.emoney' => 1,
 					'visible' => 1,
 				);
-			} elseif ($role==4) {
+			} elseif ($role==5) {
 					$where = array(
 						'no_gudep' => $sekolah,
 						// 'visible' => 1,

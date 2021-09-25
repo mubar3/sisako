@@ -169,8 +169,8 @@
 
                 <div class="form-group">
                   <input type="submit" name="submit" value="Save" class="btn btn-success">
-                  <a href="<?php echo base_url('Dashboard/admin/data/user/list'); ?>"><input type="button" value="Back To View" class="btn btn-success"></a>
-                  <input type="reset" name="reset" value="Cancel" class="btn btn-success">
+                  <a href="<?php echo base_url('Dashboard/admin/data/user/listuser'); ?>"><input type="button" value="Back To View" class="btn btn-success"></a>
+                  <!-- <input type="reset" name="reset" value="Cancel" class="btn btn-success"> -->
                 </div>
               </form>
               <?php } ?>

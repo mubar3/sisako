@@ -20,13 +20,13 @@ if($uri_segments[$url_akhir]=="add"){ ?><li class="active"> <?php } else {?><li>
     <!-- <li class="active"><a href="<?php echo base_url('Dashboard/admin/data/anggota/bin'); ?>"><i class="fa fa-trash"></i> Sampah </a></li> -->
   <?php //} ?>
 
-  <?php if ($this->session->userdata('role') == 1 || $this->session->userdata('role') == 0) { ?>
+  <?php if ($this->session->userdata('role') != 5 || $this->session->userdata('role') == 0) { ?>
     <?php
 if($uri_segments[$url_akhir]=="listuser"){ ?><li class="active"> <?php } else {?><li><?php } ?>
-   <!--  <a href="<?php echo base_url('Dashboard/admin/data/user/listuser'); ?>">
-      <i class="fa fa-user"></i> <span>User</span>
+    <a href="<?php echo base_url('Dashboard/admin/data/user/listuser'); ?>">
+      <i class="fa fa-user"></i> <span>Administrator</span>
 
-    </a> -->
+    </a>
   </li>
   <?php } ?>
 

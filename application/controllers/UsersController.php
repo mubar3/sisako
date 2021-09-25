@@ -18,7 +18,11 @@ class UsersController extends CI_Controller {
 
 	public function index()
   {
-		$address = $this->session->userdata('where');
+		$address = array(
+                    'users.role >' => $this->session->userdata('role'),
+                );
+        // print_r($address);
+        // die();
  	 	$where= array(
  		 	'visible' => 1,
  		 	'aktif' => 0,
@@ -612,7 +616,7 @@ public function import_dataa()
 
   public function tambah_user()
   {
-		$role = $this->db->get('tb_role')->result();
+		$role = $this->db->where('id >', $this->session->userdata('role'))->get('tb_role')->result();
 		$province = $this->db->get('province')->result();
 		$regencies = $this->db->get('regencies')->result();
 		$data = array(
@@ -742,6 +746,8 @@ public function import_dataa()
 		$role = $this->db->get('tb_role')->result();
 		$where = array('id_user' => $id);
 		$edit_user = $this->m_users->edit_data($where,'users')->result();
+        // print_r($edit_user);
+        // die();
 		$province = $this->db->get('province')->result();
 		$regencies = $this->db->get('regencies')->result();
 		// $kabupaten = $this->m_anggota->read_all()->result();
@@ -848,7 +854,7 @@ public function import_dataa()
 				'id_user' => $id_user
 			);
 			$this->m_users->update_data($where,$data,'users');
-			redirect('Dashboard/admin/data/user/list');
+			redirect('Dashboard/admin/data/user/listuser');
 		}else{
 			$data = array(
 				'username' 		=> $username,
@@ -871,7 +877,7 @@ public function import_dataa()
 				'id_user' => $id_user
 			);
 			$this->m_users->update_data($where,$data,'users');
-			redirect('Dashboard/admin/data/user/list');
+			redirect('Dashboard/admin/data/user/listuser');
 		}
 	}
 }

@@ -32,7 +32,7 @@
                               <th>No</th>
                               <!-- <th>Profil</th> -->
                               <th>Username</th>
-                              <th>Password</th>
+                              <!-- <th>Password</th> -->
                               <th>Type</th>
                               <th>Nomor Gudep</th>
                               <th>Instansi</th>
@@ -51,7 +51,7 @@
                               <td><?php echo $no++ ?></td>
                               <!-- <td><?php echo $u->fullname ?></td> -->
                               <td><?php echo $u->username ?></td>
-                              <td><?php echo $u->password ?></td>
+                              <!-- <td><?php echo $u->password ?></td> -->
                               <td><?php echo $u->role ?></td>
                               <td><?php echo $u->no_gudep ?></td>
                               <td><?php echo $u->instansi ?></td>
