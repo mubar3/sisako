@@ -128,9 +128,13 @@ class Welcome extends CI_Controller {
 
 			if ($role==1) {
 				$where = array(
-					'provinsi' => $provinsi,
-					// 'visible' => 1,
-				);
+						// 'admin' => $idku,
+						// 'visible' => 1,
+					);
+				// $where = array(
+				// 	'provinsi' => $provinsi,
+				// 	// 'visible' => 1,
+				// );
 				$limit = array(
 					'provinsi' => $address,
 					// 'visible' => 1,
@@ -157,9 +161,13 @@ class Welcome extends CI_Controller {
 				);
 			}elseif ($role==2) {
 				$where = array(
-					'provinsi' => $provinsi,
-					// 'visible' => 1,
-				);
+						'admin' => $idku,
+						// 'visible' => 1,
+					);
+				// $where = array(
+				// 	'provinsi' => $provinsi,
+				// 	// 'visible' => 1,
+				// );
 				$limit = array(
 					'provinsi' => $address,
 					// 'visible' => 1,
@@ -188,9 +196,13 @@ class Welcome extends CI_Controller {
 			}
 			elseif ($role==3) {
 			$where = array(
-				'kabupaten' => $kabupaten,
-				// 'visible' => 1,
-			);
+					'admin' => $idku,
+					// 'visible' => 1,
+				);
+			// $where = array(
+			// 	'kabupaten' => $kabupaten,
+			// 	// 'visible' => 1,
+			// );
 			$limit = array(
 				'kabupaten' => $address,
 				// 'visible' => 1,
@@ -218,9 +230,13 @@ class Welcome extends CI_Controller {
 		}
 			 elseif ($role==4) {
 				$where = array(
-					'kecamatan' => $address,
-					// 'visible' => 1,
-				);
+						'admin' => $idku,
+						// 'visible' => 1,
+					);
+				// $where = array(
+				// 	'kecamatan' => $address,
+				// 	// 'visible' => 1,
+				// );
 				$limit = array(
 					'kecamatan' => $address,
 					// 'visible' => 1,
@@ -247,9 +263,13 @@ class Welcome extends CI_Controller {
 				);
 			} elseif ($role==5) {
 					$where = array(
-						'no_gudep' => $sekolah,
-						// 'visible' => 1,
-					);
+							'admin' => $idku,
+							// 'visible' => 1,
+						);
+					// $where = array(
+					// 	'no_gudep' => $sekolah,
+					// 	// 'visible' => 1,
+					// );
 					$limit = array(
 						'no_gudep' => $address,
 						'aktif' => 1,
@@ -272,10 +292,6 @@ class Welcome extends CI_Controller {
 						'tb_pramuka.emoney' => 1,
 					);
 			}
-			$where = array(
-					'admin' => $idku,
-					// 'visible' => 1,
-				);
 			$data_session = array(
 				'nama' => $username,
 				'status' => "login",
