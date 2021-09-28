@@ -96,7 +96,7 @@
                       <?php
 
                       foreach($role as $r){ ?>
-                      <option value="<?php echo $r->id?>" <?php if($eu->role==$r->id){echo "selected";} ?>><?echo $r->role ?></option>
+                      <option value="<?php echo $r->id?>" <?php if($eu->role==$r->id){echo "selected";} ?>><?php echo $r->role ?></option>
 
                     <?php } ?>
                       </select>

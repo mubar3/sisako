@@ -748,10 +748,10 @@ public function import_dataa()
 
 	function edit_user($id){
 		$role = $this->db->get('tb_role')->result();
+        // print_r($role);
+        // die();
 		$where = array('id_user' => $id);
 		$edit_user = $this->m_users->edit_data($where,'users')->result();
-        // print_r($edit_user);
-        // die();
 		$province = $this->db->get('province')->result();
 		$regencies = $this->db->get('regencies')->result();
 		// $kabupaten = $this->m_anggota->read_all()->result();
