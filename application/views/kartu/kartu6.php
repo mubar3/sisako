@@ -44,10 +44,20 @@
                       <td><b>:</b></td>
                         <td> <b><?php echo strtolower ($d->tempat_lahir);?>, <?php echo tgl_indo($d->tanggal_lahir);?></b></td>
                     </tr>
+                    <?php  
+                    $rt = 'RT.'.$d->rt;
+                    $rw = 'RW.'.$d->rw;
+                    ?>
                     <tr style="line-height: 17px; text-transform:capitalize;">
                       <td style="vertical-align: text-top;"><b>Alamat</b></td>
                         <td style="vertical-align: text-top;"><b>:</b></td>
-                        <td><b><?php echo strtolower($d->alamat), " RT.0";?><?php echo strtoupper ($d->rt), "/ RW.0";?><?php echo strtoupper ($d->rw);?>, <?php echo ucwords ($d->desa);?>, <?php echo ucwords ($d->kecamatan);?>, <?php echo strtolower($d->kabupaten);?></b></td>
+                        <td><b><?php echo strtolower($d->alamat).', ';?>
+                        <?php 
+                        if(!empty($d->rt) or !empty($d->rw)){
+                        echo $rt.'/'.$rw.', ';
+                        }
+                        ?>
+                        <?php echo ucwords ($d->desa);?>, <?php echo ucwords ($d->kecamatan);?>, <?php echo strtolower($d->kabupaten);?></b></td>
                     </tr>
                     <tr>
                       <td><b>Gudep</b></td>
