@@ -54,6 +54,10 @@ class Welcome extends CI_Controller {
 
 			 //$edit_prop = $this->m_anggota->edit_data(array('no_anggota' => $no_anggota),'tb_anggota_properti')->result_array();
 		 $edit = $this->m_anggota->read_qr($where)->result();
+		 if(empty($edit)){
+		 	$where = array('nia' => $id);
+		 	$edit = $this->m_anggota->read_qr($where)->result();
+		 }
 		 // print_r($edit);
 
 			 $status = $this->db->get('tb_status')->result();

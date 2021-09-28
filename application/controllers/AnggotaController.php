@@ -909,7 +909,7 @@ public function edit_anggota($id)
 		// 		die();
 
 
-		$data = base_url('anggota/detail/').$row['nia'];
+		$data = 'https://sisako.com/anggota/detail/'.$row['nia'];
 
 
 
