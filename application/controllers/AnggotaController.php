@@ -819,18 +819,51 @@ public function edit_anggota($id)
 				);
 
 				$query = $this->m_anggota->input_data($data_user,'tb_pramuka');
-				$this->qrcode($nik);
+				$this->qrcode($nia);
 				// echo "succeed";
 				redirect('Dashboard/admin/data/anggota/all');
 	}
 
-	public function qrcode($nik){
+	// public function qrcode($nik){
+	// 	$this->load->library('ciqrcode'); //pemanggilan library QR CODE
+
+	// 	$where = array('nik' => $nik);
+	// 	$query = $this->db->get_where('tb_pramuka',$where)->row();
+
+	// 	$result = $query->nik;
+	// 	$data = base_url('anggota/detail/').$result;
+
+
+
+	// 	$config['cacheable']	= true; //boolean, the default is true
+	// 	$config['cachedir']		= './assets/'; //string, the default is application/cache/
+	// 	$config['errorlog']		= './assets/'; //string, the default is application/logs/
+	// 	$config['imagedir']		= './assets/img/qrcode/'; //direktori penyimpanan qr code
+	// 	$config['quality']		= true; //boolean, the default is true
+	// 	$config['size']			= '1024'; //interger, the default is 1024
+	// 	$config['black']		= array(224,255,255); // array, default is array(255,255,255)
+	// 	$config['white']		= array(70,130,180); // array, default is array(0,0,0)
+	// 	$this->ciqrcode->initialize($config);
+
+	// 	$image_name=$nik.'.png'; //buat name dari qr code sesuai dengan nim
+
+	//  $params['data'] = $data ; //data yang akan di jadikan QR CODE
+	// 	$params['level'] = 'H'; //H=High
+	// 	$params['size'] = 10;
+	// 	$params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/
+	// 	$this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
+
+	// 	//$this->m_anggota->input_data($data_user,$image_name,'tb_anggota');//simpan ke database
+	// 	//redirect('Dashboard/admin/data/anggota/list');
+	// }
+
+	public function qrcode($nia){
 		$this->load->library('ciqrcode'); //pemanggilan library QR CODE
 
-		$where = array('nik' => $nik);
+		$where = array('nia' => $nia);
 		$query = $this->db->get_where('tb_pramuka',$where)->row();
 
-		$result = $query->nik;
+		$result = $query->nia;
 		$data = base_url('anggota/detail/').$result;
 
 
@@ -845,7 +878,7 @@ public function edit_anggota($id)
 		$config['white']		= array(70,130,180); // array, default is array(0,0,0)
 		$this->ciqrcode->initialize($config);
 
-		$image_name=$nik.'.png'; //buat name dari qr code sesuai dengan nim
+		$image_name=$nia.'.png'; //buat name dari qr code sesuai dengan nim
 
 	 $params['data'] = $data ; //data yang akan di jadikan QR CODE
 		$params['level'] = 'H'; //H=High
@@ -855,6 +888,53 @@ public function edit_anggota($id)
 
 		//$this->m_anggota->input_data($data_user,$image_name,'tb_anggota');//simpan ke database
 		//redirect('Dashboard/admin/data/anggota/list');
+	}
+
+		public function qrcode_ubah(){
+		$this->load->library('ciqrcode'); //pemanggilan library QR CODE
+
+		// $where = array('nia' => $nia);
+		// $query = $this->db->get_where('tb_pramuka',$where)->row();
+
+		// $result = $query->nia;
+		// $where = array('id' => 51);
+		$rawdata = $this->db->get_where('tb_pramuka')->result_array();
+		// print_r($rawdata);
+		// die();
+		// prepare the data into a multidimensional array
+		foreach($rawdata as $row)
+		{
+		// $row['id'] 
+		// print_r($row['golongan']);
+		// 		die();
+
+
+		$data = base_url('anggota/detail/').$row['nia'];
+
+
+
+		$config['cacheable']	= true; //boolean, the default is true
+		$config['cachedir']		= './assets/'; //string, the default is application/cache/
+		$config['errorlog']		= './assets/'; //string, the default is application/logs/
+		$config['imagedir']		= './assets/img/qrcode2/'; //direktori penyimpanan qr code
+		$config['quality']		= true; //boolean, the default is true
+		$config['size']			= '1024'; //interger, the default is 1024
+		$config['black']		= array(224,255,255); // array, default is array(255,255,255)
+		$config['white']		= array(70,130,180); // array, default is array(0,0,0)
+		$this->ciqrcode->initialize($config);
+
+		$image_name=$row['nia'].'.png'; //buat name dari qr code sesuai dengan nim
+
+	 $params['data'] = $data ; //data yang akan di jadikan QR CODE
+		$params['level'] = 'H'; //H=High
+		$params['size'] = 10;
+		$params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/
+		$this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
+
+		//$this->m_anggota->input_data($data_user,$image_name,'tb_anggota');//simpan ke database
+		//redirect('Dashboard/admin/data/anggota/list');
+		}
+		echo "sukses";
 	}
 
 

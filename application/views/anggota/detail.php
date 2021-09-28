@@ -67,12 +67,12 @@
             <div class="box-body">
               <?php foreach ($edit_anggota as $e) { ?>
               <!-- <form action="<?php echo base_url(). 'AnggotaController/tambah_aksi'; ?>" method="post" onsubmit="return validasi();" enctype="multipart/form-data"> -->
-              <a href="<?php echo base_url(). 'AnggotaController/qrcode/'.$e->nik; ?>">Perbarui Barcode</a>
+              <a href="<?php echo base_url(). 'AnggotaController/qrcode/'.$e->nia; ?>">Perbarui Barcode</a>
                   <table class="table table-striped" border="0" width="200px" cellpadding="0" cellspacing="0">
                       <tr>
                         <td ><img class="img-responsive" width="170" height="200" src="assets/img/foto/<?php echo $e->image ?>"></td>
                         <td></td>
-                        <td><img class="pull-right" width="150" height="150" src="assets/img/qrcode/<?php echo $e->nik.'.png';?>"></td>
+                        <td><img class="pull-right" width="150" height="150" src="assets/img/qrcode/<?php echo $e->nia.'.png';?>"></td>
 
                         <!-- <td><img class="pull-right" width="120" height="120" src="assets/img/qrcode/<?php echo $e->nik.'.png';?>"></td> -->
                         <!-- <td><img class="pull-right" width="120" height="120" src="assets/img/qrcode/<?php echo $e->nia.'.png';?>"></td> -->

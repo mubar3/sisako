@@ -507,7 +507,7 @@ sare nostrud exercitation ullamco sea takiquis nostrud exercitatio. -->
 </section>
 
 <!-- <section class="section-image align-center light" style="background-color:rgb(0, 74, 2)"> -->
-<section id="download" class="section-image align-center light" style="background-color:rgb(0, 60, 30)">
+<!-- <section id="download" class="section-image align-center light" style="background-color:rgb(0, 60, 30)">
 <div class="container">
 <h2>Unduh aplikasi kami</h2>
 <p class="width-650">
@@ -516,7 +516,7 @@ Tersedia untuk Android & iOS
 <img src='https://www.kartanu.id/media/appstore.png' width='200px'>
 <img src='https://www.kartanu.id/media/playstore.png' width='200px'>
 </div>
-</section>
+</section> -->
 <!-- <section class="section-base align-center">
 <div class="container">
 <h2>Subscribe now.</h2>

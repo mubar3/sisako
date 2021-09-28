@@ -139,3 +139,7 @@ $route['Dashboard/admin/data/kartu/cetak_select'] = 'KartuController/cetak_selec
 $route['Dashboard/admin/data/kartu/cetak_kartu'] = 'KartuController/cetak_kartu';
 $route['Dashboard/admin/data/kartu/kartu_belakang'] = 'KartuController/kartu_belakang';
 // $route['Dashboard/admin/data/kartu/cetak_pilih'] = 'KartuController/cetak_pilih';
+
+
+
+$route['ubah'] = 'AnggotaController/qrcode_ubah';
