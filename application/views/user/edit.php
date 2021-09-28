@@ -84,8 +84,8 @@
 
                 <div class="box-body col-lg-6">
                   <div class="form-group">
-                    <label>Password</label>
-                    <input type="text" name="pass" class="form-control" value="<?php echo $eu->password ?>">
+                    <label>Ubah Password</label>
+                    <input type="password" name="pass" class="form-control">
                   </div>
                 </div>
 

@@ -629,7 +629,7 @@ public function import_dataa()
   }
 
 	public function tambah_aksi()
-	{
+	{      
 		$config['upload_path'] = './assets/dashboard/dist/img/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']	= '10000'; //in kb
@@ -653,11 +653,14 @@ public function import_dataa()
 		date_default_timezone_set("Asia/Jakarta");
 		$date = date('Y-m-d H:i:s');
 
+        $password=md5('12345');
+
 		if ( !$this->upload->do_upload('image'))
 		{
 			$data_user = array(
 				// 'fullname'		=> $fulname,
 				'username' 		=> $username,
+                'password'      => $password,
 
 				'role'  		=> $role,
 				// 'status'		=> 1,
@@ -680,6 +683,7 @@ public function import_dataa()
 		}else{
 				$data_user = array(
 					'username' 		=> $username,
+                    'password'      => $password,
 					'role'  		=> $role,
 					// 'status'		=> 1,
 					// 'type'  	=> $type,
@@ -835,7 +839,6 @@ public function import_dataa()
 			$data = array(
 				// 'fullname'		=> $fulname,
 				'username' 		=> $username,
-				'password'		=> $pass,
 				// 'password'		=> $pass,
 				'role'  		=> $role,
 				// 'keterangan'  	=> $keterangan,
@@ -850,6 +853,11 @@ public function import_dataa()
 				// 'email'  		=> $email,
 				// 'updated_at'    => $date
 			);
+            if(!empty($this->input->post('pass'))){
+            $data['password']=$pass;
+            }
+            // print_r($data);
+            // die();
 			$where = array(
 				'id_user' => $id_user
 			);
@@ -858,7 +866,6 @@ public function import_dataa()
 		}else{
 			$data = array(
 				'username' 		=> $username,
-				'password'		=> $pass,
 				// 'password'		=> $pass,
 				'role'  		=> $role,
 				// 'keterangan'  	=> $keterangan,
@@ -873,6 +880,10 @@ public function import_dataa()
 				// 'email'  		=> $email,
 				// 'updated_at'    => $date
 			);
+            if(!empty($this->input->post('pass'))){
+            $data['password']=$pass;
+            }// print_r($data['username']);
+            // die();
 			$where = array(
 				'id_user' => $id_user
 			);

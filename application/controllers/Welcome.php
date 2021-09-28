@@ -101,7 +101,7 @@ class Welcome extends CI_Controller {
 		$where = array(
 			'username' => $username,
 			'password' => md5($password),
-			'status'	=>1
+			'aktif'	=>1
 			);
 		$cek = $this->user->cek_login("users",$where)->num_rows();
 		if($cek > 0)
