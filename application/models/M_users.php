@@ -28,6 +28,22 @@ class m_users extends CI_Model
 		return $this->db->get_where($table,$where)->result();
 	}
 
+	public function getrowData($table,$where){
+
+		// $sql = "SELECT MAX(urut) as no FROM tb_pramuka WHERE kabupaten = '$kabupaten'";
+		// $query = $this->db->query($sql);
+		// return $query;
+
+		// $this->db->select('*');
+		return $this->db->get_where($table,$where);
+	}
+
+	public function getlikeData($table,$where){
+
+		$this->db->like($where);
+		return $this->db->get($table);
+	}
+
 	public function getDataall(){
 		$address = $this->session->userdata('where');
 		// print_r($address);

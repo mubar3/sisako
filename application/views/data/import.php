@@ -26,8 +26,9 @@
                   <div class="box-body">
                     <ol>
                       <li>Silahkan download contoh file excel.xls <a href="<?= base_url('assets/import_contoh/download.php?nama_file=example_data.xls'); ?>">disini</a></li>
-                      <li>Untuk kode agama, provinsi, kota dll bisa didawnload <a href="<?= base_url('assets/import_contoh/download.php?nama_file=code_data.xls'); ?>">disini</a></li>
+                      <!-- <li>Untuk kode agama, provinsi, kota dll bisa didawnload <a href="<?= base_url('assets/import_contoh/download.php?nama_file=code_data.xls'); ?>">disini</a></li> -->
                       <li>Silahkan isi data pelajar sesuai dengan kolom header/judul</li>
+                      <li>untuk pengisian harap diperhatikan format text pengisian harus sesuai dan diperhatikan spasi seperti nama desa, kecamatan, dll</li>
                       <li>kemudian simpan file excel dengan format file (.xls) dengan nama file tanpa ada spasi</li>
                       <li>silahkan pilih upload file yang telah disimpan</li>
                       <li>Persiapkan file gambar dengan nama gambar sesuai dengan nama pada kolom "Gambar" pada image</li>

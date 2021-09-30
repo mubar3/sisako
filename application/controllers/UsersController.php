@@ -7,6 +7,7 @@ class UsersController extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('m_users');
+        $this->load->model('m_anggota');
 		$this->load->library('form_validation');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('Excel');
@@ -363,58 +364,140 @@ public function import_dataa()
 				$timestamp = $date->format('Y-m-d h:m:s');
 
                     $var  = PHPExcel_Style_NumberFormat::toFormattedString($rowData[0][9],'YYYY-MM-DD' );
-					// print_r);
-					// die();
 					// $nia="'".$rowData[0][1];
 					// $nik="'".$rowData[0][33];
-					$string = "8912371963922";
-					$nia = preg_replace("/'/", "", $rowData[0][1]);
-					$nik = preg_replace("/'/", "", $rowData[0][33]);
-                    $no_hp = preg_replace("/'/", "", $rowData[0][11]);
+
+                    //no kab
+                    $kabupaten = array('nama' => $rowData[0][14]);
+                    $kabupaten =$this->m_users->getlikeData('regencies',$kabupaten)->row();
+                    if($kabupaten){
+                        $kabupaten = $kabupaten->id;
+                    }else{
+                        $kabupaten='';
+                    }
+                    
+                    //no urut
+                    $no_urut = $this->m_anggota->get_urut($kabupaten)->row();
+                    $no = $no_urut->no;
+                    $no =$no+1;
+                    $urut = sprintf("%06d", $no);
+
+                    //NIA
+                    $tgl_lahir = date('Y-m-d', PHPExcel_Shared_Date::ExcelToPHP($rowData[0][10]));
+                    $tahun = date('Y',strtotime($tgl_lahir));
+                    $bulan = date('m',strtotime($tgl_lahir));
+                    $tanggal = date('d',strtotime($tgl_lahir));
+                    $cabang = substr($kabupaten,2,2);
+                    $nia = $tanggal.$bulan.$tahun.$cabang.$urut;
+                    // print_r($tgl_lahir);
+                    // die();
+					
+                    //jenis kelamin
+                    $jk = array('jk' => $rowData[0][3]);
+                    $jk =$this->m_users->getlikeData('tb_jk',$jk)->row();
+                    if($jk){
+                        $jk = $jk->id;
+                    }else{
+                        $jk='';
+                    }
+
+                    //agama
+                    $agama = array('agama' => $rowData[0][6]);
+                    $agama =$this->m_users->getlikeData('tb_agama',$agama)->row();
+                    if($agama){
+                        $agama = $agama->id;
+                    }else{
+                        $agama='';
+                    }
+
+                    //golongan
+                    $golongan = array('golongan' => $rowData[0][7]);
+                    $golongan =$this->m_users->getlikeData('tb_golongan',$golongan)->row();
+                    if($golongan){
+                        $golongan = $golongan->id;
+                    }else{
+                        $golongan='';
+                    }
+
+                    //no prov
+                    $provinsi = array('nama' => $rowData[0][13]);
+                    $provinsi =$this->m_users->getlikeData('province',$provinsi)->row();
+                    if($provinsi){
+                        $provinsi = $provinsi->id;
+                    }else{
+                        $provinsi='';
+                    }
+
+                    //no kec
+                    $kecamatan = array('nama' => $rowData[0][15]);
+                    $kecamatan =$this->m_users->getlikeData('districts',$kecamatan)->row();
+                    if($kecamatan){
+                        $kecamatan = $kecamatan->id;
+                    }else{
+                        $kecamatan='';
+                    }
+
+                    //no desa
+                    $desa = array('nama' => $rowData[0][16]);
+                    $desa =$this->m_users->getlikeData('villages',$desa)->row();
+                    if($desa){
+                        $desa = $desa->id;
+                    }else{
+                        $desa='';
+                    }
+
+
+
+                    // foreach ($data as $key) 
+                    // {
+                    //     $this->zip->read_file(FCPATH.'/assets/img/foto/'.$key->image);
+                    // }
+
+
+					// $string = "8912371963922";
+					// $nia = preg_replace("/'/", "", $rowData[0][1]);
+					$nik = preg_replace("/'/", "", $rowData[0][0]);
+                    // $no_hp = preg_replace("/'/", "", $rowData[0][11]);
 
                 $data = array(
-                    "urut"=> $rowData[0][0],
+                    "urut"=> $urut,
                     "nia"=> $nia,
-                    "no_gudep"=> $rowData[0][2],
-                    "nama_depan"=> $rowData[0][3],
-                    "nama_tengah"=> $rowData[0][4],
-                    "nama_belakang"=> $rowData[0][5],
-                    "agama"=> $rowData[0][6],
-                    "golongan_darah"=> $rowData[0][7],
-                    "tempat_lahir"=> $rowData[0][8],
-                    "tanggal_lahir"=> $var,
-                    "usia"=> $rowData[0][10],
-                    "no_hp"=> $no_hp,
-                    "alamat"=> $rowData[0][12],
-                    "jk"=> $rowData[0][13],
+                    "no_gudep"=> $rowData[0][5],
+                    "nama_depan"=> $rowData[0][2],
+                    "agama"=> $agama,
+                    "golongan_darah"=> $rowData[0][8],
+                    "tempat_lahir"=> $rowData[0][9],
+                    "tanggal_lahir"=> $tgl_lahir,
+                    "usia"=> $rowData[0][11],
+                    "no_hp"=> $rowData[0][12],
+                    "alamat"=> $rowData[0][17],
+                    "jk"=> $jk,
                     "waktu"=> $timestamp,
-                    "nama_organisasi1"=> $rowData[0][14],
-                    "jabatan1"=> $rowData[0][15],
-                    "tahun1"=> $rowData[0][16],
-                    "nama_organisasi2"=> $rowData[0][17],
-                    "jabatan2"=> $rowData[0][18],
-                    "tahun2"=> $rowData[0][19],
-                    "nama_organisasi3"=> $rowData[0][20],
-                    "jabatan3"=> $rowData[0][21],
-                    "tahun3"=> $rowData[0][22],
+                    "nama_organisasi1"=> $rowData[0][19],
+                    "jabatan1"=> $rowData[0][20],
+                    "tahun1"=> $rowData[0][21],
+                    "nama_organisasi2"=> $rowData[0][22],
+                    "jabatan2"=> $rowData[0][23],
+                    "tahun2"=> $rowData[0][24],
+                    "nama_organisasi3"=> $rowData[0][25],
+                    "jabatan3"=> $rowData[0][26],
+                    "tahun3"=> $rowData[0][27],
                     "aktif"=> 0,
-                    "golongan"=> $rowData[0][23],
-                    "provinsi"=> $rowData[0][24],
-                    "kabupaten"=> $rowData[0][25],
-                    "kecamatan"=> $rowData[0][26],
-                    "desa"=> $rowData[0][27],
+                    "golongan"=> $golongan,
+                    "provinsi"=> $provinsi,
+                    "kabupaten"=> $kabupaten,
+                    "kecamatan"=> $kecamatan,
+                    "desa"=> $desa,
                     "aktifitas_organisasi"=> $rowData[0][28],
                     "image"=> $rowData[0][29],
-                    "qr_code"=> $rowData[0][30],
-                    "nisn"=> $rowData[0][31],
-                    "pangkalan"=> $rowData[0][32],
+                    "nisn"=> $rowData[0][1],
+                    "pangkalan"=> $rowData[0][4],
                     "nik"=> $nik,
                     "print"=> 0,
                     "visible"=> 1,
-                    "rt"=> $rowData[0][34],
-                    "rw"=> $rowData[0][35],
-                    "emoney"=> $rowData[0][36],
-                    "status_perkawinan"=> $rowData[0][37],
+                    "emoney"=> $rowData[0][30],
+                    "status_perkawinan"=> $rowData[0][18],
+                    "admin"=>$this->session->userdata('id_user')
                 );
  
                 // $insert = $this->db->insert("tb_pramuka",$data);
