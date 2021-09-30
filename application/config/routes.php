@@ -59,6 +59,7 @@ $route['Dashboard/auth/logout']['get'] = 'welcome/do_Logout';
 
 $route['admin'] = 'Welcome/admin';
 $route['user'] = 'Welcome/daftar';
+$route['daftar'] = 'Welcome/daftar_anggota';
 $route['anggota/detail/(:any)'] = 'Welcome/detail_qr/$1';
 $route['Dashboard/admin'] = 'DashboardController';
 $route['char'] = 'DashboardController/chart';

@@ -88,7 +88,7 @@
 </li>
 <li>
 <!-- <a href="<?php echo base_url('public/anggota'); ?> " target="_blank">Daftar</a> -->
-<a href="<?php echo base_url('user'); ?> " target="_blank">Daftar</a>
+<a href="<?php echo base_url('daftar'); ?> " target="_blank">Daftar</a>
 </li>
 </ul>
 <div class="clear"></div>

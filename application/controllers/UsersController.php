@@ -363,7 +363,7 @@ public function import_dataa()
                 $date = new DateTime("now");
 				$timestamp = $date->format('Y-m-d h:m:s');
 
-                    $var  = PHPExcel_Style_NumberFormat::toFormattedString($rowData[0][9],'YYYY-MM-DD' );
+                    // $var  = PHPExcel_Style_NumberFormat::toFormattedString($rowData[0][9],'YYYY-MM-DD' );
 					// $nia="'".$rowData[0][1];
 					// $nik="'".$rowData[0][33];
 

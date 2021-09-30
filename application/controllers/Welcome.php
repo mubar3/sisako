@@ -30,6 +30,18 @@ class Welcome extends CI_Controller {
 		//$this->load->view('welcome_message');
 		$this->load->view('home/index.php');
 	}
+	public function daftar_anggota()
+	{	
+		$data['jk'] = $this->db->get('tb_jk')->result();
+		$data['province'] = $this->db->get('province')->result();
+		$data['regencies'] = $this->db->get('regencies')->result();
+		$data['districts'] = $this->db->get('districts')->result();
+		$data['villages'] = $this->db->get('villages')->result();
+
+		$this->load->view('layout/header_just.php',$data);
+		$this->load->view('anggota/create_beranda.php',$data);
+		$this->load->view('layout/footer.php',$data);
+	}
 
 	public function index()
 	{

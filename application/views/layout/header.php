@@ -131,7 +131,7 @@ if($uri_segments[$url_akhir]=="agenda"){ ?>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a><button class="btn btn-default">Profil</button></a>
+                  <!-- <a><button class="btn btn-default">Profil</button></a> -->
                 </div>
                 <div class="pull-right">
                   <a href="<?php echo base_url('Dashboard/auth/logout'); ?>"><button class="btn btn-danger">Keluar</button></a>
