@@ -337,7 +337,7 @@ document.getElementById("myAudio").pause();
   <tr><td>&nbsp;<td></tr>
   <tr><b style="font-size: 25px; font-family : serif"> QRcode </b></tr>
   <tr>
-    <td><img class="pull-right" width="150" height="150" src="assets/img/qrcode/<?php echo $e->nik.'.png';?>"></td>
+    <td><img class="pull-right" width="150" height="150" src="assets/img/qrcode/<?php echo $e->nia.'.png';?>"></td>
     <!-- <td ><img class="img-responsive" width="370" height="400" src="assets/img/kartu/depan.png"></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
