@@ -25,12 +25,12 @@
         </style> -->
         <!-- <body style="width : 100%; height : 100% "> -->
           <!-- style="margin:20mm -50mm 0mm 15mm;" -->
-        <body style="padding-top:65px;">
+        <body style="padding-top:45px; margin:20mm -15mm 0mm 15mm;">
         <?php foreach ($anggota as $d) {
           // code...
         ?>
         <body>
-        <div style=" padding: 25px; float: left; margin-left: 10px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
+        <div style=" padding: 25px; border-left: 4px dashed black; float: left; margin-left: 4px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
 
   <img style="position: absolute;margin-left: 34px;margin-top: 98px; width: 105px; height: 140px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
 
@@ -92,7 +92,7 @@
 
                   <img style="position: absolute;margin-left: 440px;margin-top: 250px; width: 70px;height:70px; overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/qrcode/<?php echo $d->nia?>.png">
             </div>
-                  <div style=" padding: 25px; border-left: 4px dashed black; float: left; margin-left: 3px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
+                  <div style="padding: 25px; border-left: 4px dashed black; float: left; margin-left: 3px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
 
                    <!--  <div style="float: left; margin-left: 35px; margin-top:22px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/sisakobl.png'); -->">
 
