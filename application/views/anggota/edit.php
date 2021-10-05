@@ -127,7 +127,7 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label>Nomor Gugus Depan &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
-                    <input type="text" name="no_gudep" id="no_gudep" class="form-control required" placeholder="" value="<?php echo $e->no_gudep?>" minlength="5" maxlength="5" >
+                    <input type="text" name="no_gudep" id="no_gudep" class="form-control required" placeholder="" value="<?php echo $e->no_gudep?>" minlength="2" maxlength="30" >
                   </div>
                 </div>
 
@@ -511,8 +511,8 @@
               },
               no_gudep: {
                 digits: true,
-                minlength:5,
-                maxlength:5
+                minlength:2,
+                maxlength:30
               }
             }
           })
