@@ -24,7 +24,7 @@
         }
         </style> -->
         <!-- <body style="width : 100%; height : 100% "> -->
-        <body style="margin:13mm -2mm 0mm 33mm;">
+        <body style="margin:13mm -2mm 0mm 20mm;">
         <?php foreach ($anggota as $d) {
           // code...
         ?>
