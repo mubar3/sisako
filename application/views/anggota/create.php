@@ -134,7 +134,7 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label> Nomor Gugus Depan &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
-                    <input  type="text" name="no_gudep" id="no_gudep" class="form-control required" placeholder="Nomor Gugus Depan"   minlength="2" maxlength="10">
+                    <input  type="text" name="no_gudep" id="no_gudep" class="form-control required" placeholder="Nomor Gugus Depan"   minlength="2" maxlength="30">
                   </div>
                 </div>
 
@@ -612,7 +612,7 @@
         			no_gudep: {
                 digits: true,
         				minlength:2,
-        				maxlength:10
+        				maxlength:30
         			}
         		}
           })
