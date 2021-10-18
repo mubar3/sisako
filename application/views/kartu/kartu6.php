@@ -25,12 +25,11 @@
         </style> -->
         <!-- <body style="width : 100%; height : 100% "> -->
           <!-- style="margin:20mm -50mm 0mm 15mm;" -->
-        <body style=" padding-top:45px; padding-left: -10px; margin-right: -100;">
+        <div style=" padding-top:55px; padding-left: 15px; margin-right: -100;">
         <?php $no=1; foreach ($anggota as $d) {
           // code...
         ?>
-        <body>
-        <div style=" padding: 25px; <?php if(($no%2)==0){?>border-left: 4px dashed black; margin-left: 82px; padding-left:90px; <?php } ?> float: left; margin-top:-64px;width: 572px;height: 372px;margin-bottom: 12px;background-size: 572px 372px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
+        <div style=" padding-top: 25px; padding-right: 25px;padding-bottom: 25px; <?php if(($no%2)==0){?>border-left: 4px dashed black; margin-left: 82px; padding-left:90px; <?php } ?> float: left; margin-top:-64px;width: 572px;height: 365px;margin-bottom: 12px;background-size: 572px 365px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
 
   <img style="position: absolute;margin-left: 34px;margin-top: 98px; width: 105px; height: 140px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
 
@@ -92,24 +91,12 @@
 
                   <img style="position: absolute;margin-left: 440px;margin-top: 250px; width: 70px;height:70px; overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/qrcode/<?php echo $d->nia?>.png">
             </div>
-                  <div style="padding: 25px; border-left: 4px dashed black; float: left; margin-left: 3px; margin-top:-64px;width: 572px;height: 372px;margin-bottom: 12px;background-size: 572px 372px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
-
-                   <!--  <div style="float: left; margin-left: 35px; margin-top:22px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/sisakobl.png'); -->">
-
-                                    <p style="color: #FFFFFF;margin-top: -180px;padding-left: 600px;padding-top: 4px;font-size: 11px;"> <b style="font-size: 18px;"><?php //echo $blangko["judul"];?></b>
-                                        <div style="color: #FFFFFF; padding-left: 480px;font-family: arial;font-size: 8px;text-align: center;margin-top: -10px;opacity: 20px"><b><?php //echo $blangko["judul1"];?></b>
-                                        </div>
-                                    </p>
-                                        <div style="color: #000000; margin-left: 450px;font-family: arial;font-size: 10px;text-align: justify;width: 45%;text-align: left; line-height: 1.5em;margin-top: -20px;"><br><br><b><?php //echo $blangko["peraturan"];?></b></div>
-
-                                        <!-- <img style="border-radius: 2px;border:4px solid #fff;margin-left: 780px;font-family: arial;font-size: 11px;text-align: justify;width: 40px;margin-top: -75px;position: absolute;" src="../assets/img/qrcode/<?php //echo $r["qrcode"];?>"> -->
-                                    </p>
-
-                                </div>
+            <div style="padding: 25px; border-left: 4px dashed black; float: left; margin-left: 3px; margin-top:-64px;width: 572px;height: 365px;margin-bottom: 12px;background-size: 572px 365px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
+           </div>
 
 
                   <?php $no++;} ?>
-        </body>
+        </div>
 </html
 
 
