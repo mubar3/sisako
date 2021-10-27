@@ -42,7 +42,7 @@
                     <tr style="text-transform:capitalize;">
                       <td><b>T.T.L</b></td>
                       <td><b>:</b></td>
-                        <td> <b><?php echo strtolower ($d->tempat_lahir);?>, <?php if(!empty($d->tanggal_lahir)){echo tgl_indo($d->tanggal_lahir);} ?></b></td>
+                        <td> <b><?php echo strtolower ($d->tempat_lahir);?>, <?php if(strtotime($d->tanggal_lahir) != '0000-00-00'){echo tgl_indo($d->tanggal_lahir);} ?></b></td>
                     </tr>
                     <?php  
                     $rt = 'RT.'.$d->rt;
