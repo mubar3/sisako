@@ -115,7 +115,7 @@
                   <label>Golongan &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
                   <select name="golongan" class="form-control">
                     <option value="1" <?php if ($e->golongan==1) {echo "selected";} ?> >Siaga</option>
-                    <option value="2" <?php if ($e->golongan==2) {echo "selected";} ?> >Penghalang</option>
+                    <option value="2" <?php if ($e->golongan==2) {echo "selected";} ?> >Penggalang</option>
                     <option value="3" <?php if ($e->golongan==3) {echo "selected";} ?> >Penegak</option>
                     <option value="4" <?php if ($e->golongan==4) {echo "selected";} ?> >Pandega</option>
                     <option value="5" <?php if ($e->golongan==5) {echo "selected";} ?> >Pembina</option>
