@@ -117,6 +117,12 @@
                     </tr>
 
                     <tr>
+                      <td width="20%">Pangkalan</td>
+                      <td width="10px">:</td>
+                       <td><?php echo $e->pangkalan?></td>
+                    </tr>
+
+                    <tr>
                       <td width="20%">Nama</td>
                       <td width="10px">:</td>
                        <td ><?php echo $e->nama_depan?></td>
