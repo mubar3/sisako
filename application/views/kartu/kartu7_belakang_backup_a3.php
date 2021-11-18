@@ -24,15 +24,13 @@ body {
 }
 </style> -->
 <!-- <body style="width : 100%; height : 100% "> -->
-<body style="padding-top: 60px; padding-left: 20px;">
-  <div style="  position: absolute; margin-left: 614px;
-            height: 90%;  border-left: 2px dashed;" ></div>
+<body style="margin:13mm -2mm 0mm 33mm;">
+
 <?php foreach ($anggota as $d) {
   // code...
 ?>
 <!-- <body> -->
-<!-- <div style="float: left; margin-left: 20px; margin-top:-13px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png');"> -->
-<div style=" padding: 25px; float: left; margin-left: 10px; margin-top:-64px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
+<div style="float: left; margin-left: 20px; margin-top:-13px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png');">
 </div>
           <?php } ?>
 </body>
