@@ -25,15 +25,15 @@ body {
 </style> -->
 <!-- <body style="width : 100%; height : 100% "> -->
 
-<body style="padding-top: 60px; padding-left: 2px;">
-  <div style="  position: absolute; margin-left: 635px;
+<body style="padding-top: 60px; padding-left: 0px;">
+  <div style="  position: absolute; margin-left: 630px;
             height: 90%;  border-left: 2px dashed;" ></div>
 
 <?php foreach ($anggota as $d) {
   // code...
 ?>
 <!-- <div style="float: left; margin-left: 20px; margin-top:-13px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png');"> -->
-  <div style=" padding: 25px; float: left; margin-left: 10px; margin-top:-64px;width: 570px;height: 350px;margin-bottom: 12px;background-size: 570px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
+  <div style=" padding: 25px; float: left; margin-left: 7px; margin-top:-64px;width: 570px;height: 350px;margin-bottom: 12px;background-size: 570px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
 
   <img style="position: absolute;margin-left: 34px;margin-top: 98px; width: 105px; height: 140px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
 
