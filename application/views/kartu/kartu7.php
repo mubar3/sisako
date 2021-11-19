@@ -32,7 +32,7 @@ body {
 ?>
 <!-- <body> -->
 <!-- <div style="float: left; margin-left: 20px; margin-top:-13px;width: 550px;height: 350px;margin-bottom: 12px;background-size: 550px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png');"> -->
-<div style=" padding: 25px; float: left; margin-left: 7px; margin-top:-64px;width: 570px;height: 350px;margin-bottom: 12px;background-size: 570px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
+<div style=" padding: 25px; float: left; margin-left: 9px; margin-top:-64px;width: 570px;height: 350px;margin-bottom: 12px;background-size: 570px 350px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
 </div>
           <?php } ?>
 </body>
