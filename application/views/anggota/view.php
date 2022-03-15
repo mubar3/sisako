@@ -44,9 +44,8 @@
                               <th>NIK</th>
                               <th>Nama </th>
                               <th>Nomor Gudep</th>
-                              <th>Kabupaten</th>
-                              <th>Kecamatan</th>
-                              <th>Desa</th>
+                              <th>Alamat</th>
+                              <th>Pangkalan</th>
 
                               <th>Jenis Kartu</th>
                               <!-- <th>Kabupaten</th> -->
@@ -66,10 +65,8 @@
                               <td><?php echo $d->nik ?></td>
                               <td><?php echo $d->nama_depan ?></td>
                               <td>  <?php echo substr_replace($d->no_gudep,".",2, 0);?></td>
-                              <td><?php echo $d->kabupaten ?></td>
-                              <td><?php echo $d->kecamatan ?></td>
-                              <td><?php echo $d->desa ?></td>
-
+                              <td><?php echo $d->desa.", ".$d->kecamatan.", ".$d->kabupaten ?></td>
+                              <td><?php echo $d->pangkalan?></td>
                               <td><?php echo $d->emoney?></td>
 
 

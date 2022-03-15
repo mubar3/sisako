@@ -117,9 +117,8 @@
                               <th>Nama</th>
                               <th>Jenis Kelamin</th>
                               <th>Nomor Gudep</th>
-                              <th>Kabupaten</th>
-                              <th>Kecamatan</th>
-                              <th>Desa</th>
+                              <th>Alamat</th>
+                              <th>Pangkalan</th>
                               <!-- <th>Tanggal Lahir</th>
                               <th>Usia</th> -->
 
@@ -144,9 +143,8 @@
                             <td><?php echo $d->nama_depan ?></td>
                             <td><?php echo $d->jk ?></td>
                             <td><?php echo $d->no_gudep ?></td>
-                            <td><?php echo $d->kabupaten ?></td>
-                            <td><?php echo $d->kecamatan ?></td>
-                            <td><?php echo $d->desa ?></td>
+                            <td><?php echo $d->desa.", ".$d->kecamatan.", ".$d->kabupaten ?></td>
+                            <td><?php echo $d->pangkalan?></td>
                             <!-- <td><?php echo $d->waktu ?></td> -->
                             <td><?php echo date('d F, Y', strtotime($d->waktu)); ?></td>
 
