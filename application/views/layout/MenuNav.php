@@ -116,7 +116,7 @@ if($uri_segments[$url_akhir]=="trash"){ ?><li class="active"> <?php } else {?><l
     </ul>
   </li> -->
 
-   <?php if($this->session->userdata('role')==1 or $this->session->userdata('role')==2 or $this->session->userdata('role')==3){?>
+   <?php if($this->session->userdata('role')==1){?>
     <?php
 if($uri_segments[$url_akhir]=="kartu" or $uri_segments[$url_akhir]=="unprint" or $uri_segments[$url_akhir]=="printed"){ ?><li class="active"> <?php } else {?><li><?php } ?>
     <a href="#">
