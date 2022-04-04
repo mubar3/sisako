@@ -56,7 +56,7 @@ class Welcome extends CI_Controller {
 	public function admin()
 	{
 		//$this->load->view('welcome_message');
-		$this->load->view('login/login2.php');
+		$this->load->view('login/login3.php');
 	}
 
 		public function detail_qr($id)
