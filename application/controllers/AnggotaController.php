@@ -408,6 +408,10 @@ public function status()
 			$regencies = $this->db->get('regencies')->result();
 			$districts = $this->db->get('districts')->result();
 			$villages = $this->db->get('villages')->result();
+			$kelas = $this->db->get('tb_kelas')->result();
+			$agama = $this->db->get('tb_agama')->result();
+			$golongan = $this->db->get('tb_golongan')->result();
+			$status_perkawinan = $this->db->get('tb_status')->result();
 
 
 
@@ -418,6 +422,10 @@ public function status()
 					'regencies' => $regencies,
 					'districts' => $districts,
 					'villages' => $villages,
+					'kelas'	=>$kelas,
+					'agama'	=>$agama,
+					'golongan'	=>$golongan,
+					'status_perkawinan'	=>$status_perkawinan
 
 						);
     	$this->load->view('layout/wrapper', $data);
@@ -679,6 +687,7 @@ public function edit_anggota($id)
 		$pangkalan = $this->input->post('pangkalan');
 		$nik = $this->input->post('nik');
 		$emoney = $this->input->post('emoney');
+		$kelas = $this->input->post('kelas');
 		// $im = $this->input->post('image');
 
 		$tahun = date('Y',strtotime($tanggal_lahir));
@@ -814,7 +823,8 @@ public function edit_anggota($id)
 				'nik'									=> $nik,
 				'emoney'							=> $emoney,
 				'visible'							=> 1,
-				'admin'								=> $this->session->userdata('id_user')
+				'admin'								=> $this->session->userdata('id_user'),
+				'kelas'							=> $kelas
 
 				);
 

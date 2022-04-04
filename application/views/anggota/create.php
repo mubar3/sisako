@@ -65,15 +65,14 @@
 
                 <div class="col-lg-6">
                   <div class="form-group">
-                  <label>Agama</label>
-                  <select name="agama" class="form-control">
-                    <option >Pilih Agama</option>
-                    <option value="1">Islam</option>
-                    <option value="2">Kristen Protestan</option>
-                    <option value="3">Kristen Katolik</option>
-                    <option value="4">Hindu</option>
-                    <option value="5">Buddha</option>
-                    <option value="6">Khonghucu</option>
+                  <label>Kelas</label>
+                  <select name="kelas" class="form-control">
+                    <option >Pilih Kelas</option>
+                    <?php
+                        foreach($kelas as $kelas){
+                        echo '<option value='.$kelas->id_kelas.'>'.$kelas->kelas.'</option>';
+                        }
+                        ?>
                   </select>
                   </div>
                 </div>
@@ -121,12 +120,11 @@
                   <label> Golongan &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
                   <select name="golongan" class="form-control">
                     <option >Pilih Golongan </option>
-                    <option value="1">Siaga</option>
-                    <option value="2">Penggalang</option>
-                    <option value="3">Penegak</option>
-                    <option value="4">Pandega</option>
-                    <option value="5">Pembina</option>
-                    <option value="6">Pelatih</option>
+                    <?php
+                        foreach($golongan as $golongan){
+                        echo '<option value='.$golongan->id.'>'.$golongan->golongan.'</option>';
+                        }
+                        ?>
                   </select>
                   </div>
                 </div>
@@ -223,10 +221,26 @@
                   <div class="form-group">
                   <label>Status Perkawinan</label>
                   <select name="status_perkawinan" class="form-control">
-                    <option value="Kawin">Kawin</option>
-                    <option value="Belum Kawin">Belum Kawin</option>
-                    <option value="Cerai Hidup">Cerai Hidup</option>
-                    <option value="Cerai Mati">Cerai Mati</option>
+                    <?php
+                        foreach($status_perkawinan as $status){
+                        echo '<option value='.$status->id.'>'.$status->status.'</option>';
+                        }
+                        ?>
+                  </select>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                  <label>Agama</label>
+                  <select name="agama" class="form-control">
+                    <option >Pilih Agama</option>
+                    <?php
+                        foreach($agama as $agama){
+                        echo '<option value='.$agama->id.'>'.$agama->agama.'</option>';
+                        }
+                        ?>
                   </select>
                   </div>
                 </div>
