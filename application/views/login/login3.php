@@ -27,8 +27,9 @@
 <div class="wrap-login100">
 <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
 <img src="<?php echo base_url(); ?>assets/img/logo_sako.png" alt="IMG">
+<!-- <img src="<?php echo base_url(); ?>assets/login-page/img-01.webp" alt="IMG"> -->
 </div>
-<form action="<?php echo base_url('Dashboard/auth/login'); ?>" method="post" enctype="multipart/form-data" >
+<form action="<?php echo base_url('Dashboard/auth/login'); ?>" method="post" enctype="multipart/form-data" class="login100-form validate-form">
 <span class="login100-form-title">
 Login
 </span>
