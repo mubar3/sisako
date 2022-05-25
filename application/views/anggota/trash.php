@@ -39,16 +39,15 @@
                           <table id="example1" class="table table-bordered table-striped table-responsive">
                             <thead>
                             <tr>
-                              <th>No</th>
-                              <th>NIK</th>
+                               <th>No</th>
+                              <th>Foto</th>
                               <th>Nama </th>
+                              <th>TTL</th>
+                              <th>Alamat</th>
+                              <th>Pangkalan</th>
+                              <th>Kelas</th>
                               <th>Nomor Gudep</th>
-                              <th>Kabupaten</th>
-                              <th>Kecamatan</th>
-                              <th>Desa</th>
-
-                              <th>Jenis Kartu</th>
-                              <!-- <th>Kabupaten</th> -->
+                              <th>Active</th>
                               <th>Actions</th>
                             </tr>
                             </thead>
@@ -60,14 +59,12 @@
                             <tr id="row-<?= $d->id ?>">
                               <!-- <td><input class="select_id" type="checkbox" name="kartu[]" value="<?php echo $d->id;?>"></td> -->
                               <td><?php echo $no++ ?></td>
-                              <td><?php echo $d->nik ?></td>
                               <td><?php echo $d->nama_depan ?></td>
-                                <td><?php echo $d->no_gudep ?></td>
-                              <td><?php echo $d->kabupaten ?></td>
-                              <td><?php echo $d->kecamatan ?></td>
-                              <td><?php echo $d->desa ?></td>
-
-                              <td><?php echo $d->emoney?></td>
+                              <td><?php echo $d->tempat_lahir.", ".$d->tanggal_lahir ?></td>
+                              <td><?php echo $d->desa.", ".$d->kecamatan.", ".$d->kabupaten ?></td>
+                              <td><?php echo $d->pangkalan ?></td>
+                              <td><?php echo $d->nama_kelas ?></td>
+                              <td>  <?php echo substr_replace($d->no_gudep,".",2, 0);?></td>
 
 
                               <!-- <td ><button class="btn btn-success btn-sm" onClick="verifData(<?= $d->id ?>)"><i ></i>Verifikasi</button></a> -->

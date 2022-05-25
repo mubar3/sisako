@@ -46,7 +46,7 @@ class M_Anggota extends CI_Model
 // LEFT JOIN nu_pc ON tb_anggota.kabupaten = nu_pc.id
 
 	function read_anggota($address,$where){
-    $this->db->select('tb_pramuka.id AS id,no_gudep,nama_depan,tb_agama.agama AS agama,golongan_darah, tempat_lahir,tanggal_lahir,usia,no_hp,alamat,tb_jk.jk AS jk,villages.nama AS desa,districts.nama AS kecamatan,regencies.nama AS kabupaten,province.nama AS provinsi,waktu ,nama_organisasi1,status_perkawinan,jabatan1,tahun1,nama_organisasi2,jabatan2,tahun2,nama_organisasi3,jabatan3,tahun3,aktif,tb_golongan.golongan AS golongan,aktifitas_organisasi,image,qr_code,nia,nisn,pangkalan,print,nik,rt,rw,visible,tb_emoney.emoney AS emoney')
+    $this->db->select('*,tb_pramuka.id AS id,no_gudep,nama_depan,tb_agama.agama AS agama,golongan_darah, tempat_lahir,tanggal_lahir,usia,no_hp,alamat,tb_jk.jk AS jk,villages.nama AS desa,districts.nama AS kecamatan,regencies.nama AS kabupaten,province.nama AS provinsi,waktu ,nama_organisasi1,status_perkawinan,jabatan1,tahun1,nama_organisasi2,jabatan2,tahun2,nama_organisasi3,jabatan3,tahun3,aktif,tb_golongan.golongan AS golongan,aktifitas_organisasi,image,qr_code,nia,nisn,pangkalan,print,nik,rt,rw,visible,tb_emoney.emoney AS emoney')
 		->from('tb_pramuka')
 		->where($address)
 		->where($where)
@@ -54,6 +54,7 @@ class M_Anggota extends CI_Model
 		->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')
 		->join('tb_agama','tb_pramuka.agama = tb_agama.id','left')
 		->join('tb_golongan','tb_pramuka.golongan = tb_golongan.id','left')
+		->join('tb_kelas','tb_pramuka.kelas = tb_kelas.id_kelas','left')
 
 
 		// ->join('tb_status','tb_anggota.status = tb_status.id','left')

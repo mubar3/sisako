@@ -49,6 +49,8 @@ class AnggotaController extends CI_Controller {
 			'visible' => 1,
 		);
 		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
+		// print_r($anggota);
+		// die();
 		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
 
 		$data=array(
@@ -412,6 +414,7 @@ public function status()
 			$agama = $this->db->get('tb_agama')->result();
 			$golongan = $this->db->get('tb_golongan')->result();
 			$status_perkawinan = $this->db->get('tb_status')->result();
+			$kelas = $this->db->get('tb_kelas')->result();
 
 
 

@@ -70,7 +70,7 @@
                     <option >Pilih Kelas</option>
                     <?php
                         foreach($kelas as $kelas){
-                        echo '<option value='.$kelas->id_kelas.'>'.$kelas->kelas.'</option>';
+                        echo '<option value='.$kelas->id_kelas.'>'.$kelas->nama_kelas.'</option>';
                         }
                         ?>
                   </select>
@@ -230,7 +230,7 @@
                   </div>
                 </div>
 
-
+<!-- 
                 <div class="col-lg-6">
                   <div class="form-group">
                   <label>Agama</label>
@@ -239,6 +239,20 @@
                     <?php
                         foreach($agama as $agama){
                         echo '<option value='.$agama->id.'>'.$agama->agama.'</option>';
+                        }
+                        ?>
+                  </select>
+                  </div>
+                </div> -->
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                  <label>Kelas</label>
+                  <select name="kelas" class="form-control">
+                    <option >Pilih Kelas</option>
+                    <?php
+                        foreach($kelas as $kelas){
+                        echo '<option value='.$kelas->id_kelas.'>'.$kelas->nama_kelas.'</option>';
                         }
                         ?>
                   </select>

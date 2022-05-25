@@ -40,15 +40,13 @@
                             <thead>
                             <tr>
                               <th>No</th>
-                              <th>foto</th>
-                              <th>NIK</th>
+                              <th>Foto</th>
                               <th>Nama </th>
-                              <th>Nomor Gudep</th>
                               <th>Alamat</th>
                               <th>Pangkalan</th>
-
-                              <th>Jenis Kartu</th>
-                              <!-- <th>Kabupaten</th> -->
+                              <?php if($title == 'Kartu Emoney'){}else{echo '<th>Kelas</th>';}?>
+                              
+                              <th>Nomor Gudep</th>
                               <th>Active</th>
                               <th>Actions</th>
                             </tr>
@@ -62,12 +60,12 @@
                               <!-- <td><input class="select_id" type="checkbox" name="kartu[]" value="<?php echo $d->id;?>"></td> -->
                               <td><?php echo $no++ ?></td>
                               <td><img class="lazyload" style="width:70px;height:90px;" src="<?php echo base_url('/assets/img/foto/').$d->image ?>" width="70" height="90"></td>
-                              <td><?php echo $d->nik ?></td>
                               <td><?php echo $d->nama_depan ?></td>
-                              <td>  <?php echo substr_replace($d->no_gudep,".",2, 0);?></td>
                               <td><?php echo $d->desa.", ".$d->kecamatan.", ".$d->kabupaten ?></td>
-                              <td><?php echo $d->pangkalan?></td>
-                              <td><?php echo $d->emoney?></td>
+                              <td><?php echo $d->pangkalan ?></td>
+                              <?php if($title == 'Kartu Emoney'){}else{
+                              echo "<td>".$d->nama_kelas."</td>"; }?>
+                              <td>  <?php echo substr_replace($d->no_gudep,".",2, 0);?></td>
 
 
                               <!-- <td ><button class="btn btn-success btn-sm" onClick="verifData(<?= $d->id ?>)"><i ></i>Verifikasi</button></a> -->
