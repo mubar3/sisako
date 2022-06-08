@@ -659,7 +659,7 @@ public function edit_anggota($id)
 	public function tambah_aksi()
 	{
 		$nama_depan = $this->input->post('nama_depan');
-		$agama = $this->input->post('agama');
+		// $agama = $this->input->post('agama');
 		$golongan_darah = $this->input->post('golongan_darah');
 		$tempat_lahir = $this->input->post('tempat_lahir');
 		$tanggal_lahir = $this->input->post('tanggal_lahir');
@@ -795,7 +795,7 @@ public function edit_anggota($id)
 				'nia'						=> $nia,
 				'no_gudep'				=> $no_gudep,
 				'nama_depan'			=> $nama_depan,
-				'agama'						=> $agama,
+				// 'agama'						=> $agama,
 				'golongan_darah'	=> $golongan_darah,
 				'tempat_lahir' 	=> $tempat_lahir,
 				'tanggal_lahir'	=> $tanggal_lahir,

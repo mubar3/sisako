@@ -245,7 +245,7 @@
                   </div>
                 </div> -->
 
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                   <div class="form-group">
                   <label>Kelas</label>
                   <select name="kelas" class="form-control">
@@ -257,7 +257,7 @@
                         ?>
                   </select>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="col-lg-6">
                   <div class="form-group">
