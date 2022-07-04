@@ -763,7 +763,7 @@ public function import_dataa()
 				'image'  	  => 'nopp.jpg'
 				);
 			$this->m_users->input_data($data_user,'users');
-			redirect('Dashboard/admin/data/user/list');
+			redirect('Dashboard/admin/data/user/listuser');
 		}else{
 				$data_user = array(
 					'username' 		=> $username,
