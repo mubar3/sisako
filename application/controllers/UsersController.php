@@ -860,7 +860,8 @@ public function import_dataa()
 
 		$data = array(
 			'aktif' 	=> $status,
-			'password' 	=> md5('password')
+            'status'     => 1
+			// 'password' 	=> md5('password')
 		);
 
 		$where = array(
