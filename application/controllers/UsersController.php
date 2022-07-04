@@ -786,7 +786,7 @@ public function import_dataa()
 					'image'  	  => $this->upload->data('file_name')
 					);
 				$this->m_users->input_data($data_user,'users');
-				redirect('Dashboard/admin/data/user/list');
+				redirect('Dashboard/admin/data/user/listuser');
 		}
 	}
 
