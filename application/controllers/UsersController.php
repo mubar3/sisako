@@ -736,7 +736,8 @@ public function import_dataa()
 		date_default_timezone_set("Asia/Jakarta");
 		$date = date('Y-m-d H:i:s');
 
-        $password=md5('12345');
+        // $password=md5('12345');
+        $password=md5($this->input->post('pass'));
 
 		if ( !$this->upload->do_upload('image'))
 		{

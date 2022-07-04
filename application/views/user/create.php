@@ -31,21 +31,21 @@
                 <div class="box-body col-lg-6">
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" placeholder="Email ... " required>
+                    <input type="text" name="email" class="form-control" placeholder="Email ... " >
                   </div>
                 </div>
 
                 <div class="box-body col-lg-6">
                   <div class="form-group">
                     <label>No HP</label>
-                    <input type="text" name="hp" class="form-control" placeholder="No HP ... " required>
+                    <input type="text" name="hp" class="form-control" placeholder="No HP ... " >
                   </div>
                 </div>
 
                 <div class="box-body col-lg-6">
                   <div class="form-group">
                     <label>Alamat Admin</label>
-                    <input type="text" name="alamat" class="form-control" placeholder="Alamat Admin ... " required>
+                    <input type="text" name="alamat" class="form-control" placeholder="Alamat Admin ... " >
                   </div>
                 </div>
 
@@ -79,12 +79,12 @@
                   </div>
                 </div>
 
-                <!-- <div class="box-body col-lg-6">
+                <div class="box-body col-lg-6">
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="pass" class="form-control" placeholder="Password ... " required>
                   </div>
-                </div> -->
+                </div>
 
                 <div class="box-body col-lg-6">
                   <div class="form-group">
