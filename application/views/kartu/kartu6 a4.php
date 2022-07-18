@@ -29,7 +29,7 @@
         <?php $no=1; foreach ($anggota as $d) {
           // code...
         ?>
-        <div style=" padding-top: 25px; padding-right: 25px;padding-bottom: 25px; <?php if(($no%2)==0){?>border-left: 4px dashed black; margin-left: 82px; padding-left:90px; <?php } ?> float: left; margin-top:-64px;width: 572px;height: 365px;margin-bottom: 12px;background-size: 572px 365px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
+        <div style="padding-left: 60px; padding-top: 25px; padding-right: 25px;padding-bottom: 25px; float: left; <?php if($no==6){echo"margin-top:60px;";}else{echo"margin-top:-64px;";}?>width: 572px;height: 365px;margin-bottom: 12px;background-size: 572px 365px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/pramuka.png'); background-repeat: no-repeat; background-origin: content-box;">
 
   <img style="position: absolute;margin-left: 34px;margin-top: 98px; width: 105px; height: 140px;overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/foto/<?php echo $d->image ?>">
 
@@ -91,7 +91,7 @@
 
                   <img style="position: absolute;margin-left: 440px;margin-top: 250px; width: 70px;height:70px; overflow: hidden;" class="img-responsive img" src="<?php echo base_url(); ?>assets/img/qrcode/<?php echo $d->nia?>.png">
             </div>
-            <div style="padding: 25px; border-left: 4px dashed black; float: left; margin-left: 3px; margin-top:-64px;width: 572px;height: 365px;margin-bottom: 12px;background-size: 572px 365px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
+            <div style="padding: 25px; border-left: 4px dashed black; float: left; margin-left: 3px; <?php if($no==6){echo"margin-top:60px;";}else{echo"margin-top:-64px;";}?>width: 572px;height: 365px;margin-bottom: 12px;background-size: 572px 365px;background-image: url('<?php echo base_url(); ?>assets/img/kartu/blkhitam.png'); background-repeat: no-repeat; background-origin: content-box;">
            </div>
 
 
