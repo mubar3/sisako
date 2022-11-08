@@ -506,6 +506,7 @@ public function edit_anggota($id)
 		$regencies = $this->db->get('regencies')->result();
 		$districts = $this->db->get('districts')->result();
 		$villages = $this->db->get('villages')->result();
+		$kelas = $this->db->get('tb_kelas')->result();
 
 		$kabupaten = $this->m_anggota->read_all()->result();
 		//print_r($edit_prop);
@@ -523,6 +524,7 @@ public function edit_anggota($id)
 					'kabupaten' => $kabupaten,
 
 					'edit_anggota' => $edit,
+					'kelas' => $kelas,
 					// 'edit_prop' => $edit_prop,
 
 						);
@@ -750,6 +752,7 @@ public function edit_anggota($id)
 		$nisn = $this->input->post('nisn');
 		$pangkalan = $this->input->post('pangkalan');
 		$nik = $this->input->post('nik');
+		$kta_sipa = $this->input->post('kta_sipa');
 		$emoney = $this->input->post('emoney');
 		$kelas = $this->input->post('kelas');
 		// $im = $this->input->post('image');
@@ -773,6 +776,9 @@ public function edit_anggota($id)
 
 		$filename = $_FILES['upload_foto']['tmp_name'];
 
+		$image='';
+		if($_FILES['upload_foto']['name'] != ''){
+			
 		$image = $nia.'.jpg';
 
 						$config['file_name']=$image;
@@ -836,7 +842,7 @@ public function edit_anggota($id)
          		// print_r($config);
           	// echo "berhasil_upload";
           	// die();
-       		}	
+       		}}	
 
 				// $img_arr_a = explode(";", $im);
     //     $img_arr_b = explode(",", $img_arr_a[1]);
@@ -885,6 +891,7 @@ public function edit_anggota($id)
 				'nisn'									=> $nisn,
 				'pangkalan'							=> $pangkalan,
 				'nik'									=> $nik,
+				'kta_sipa'									=> $kta_sipa,
 				'emoney'							=> $emoney,
 				'visible'							=> 1,
 				'admin'								=> $this->session->userdata('id_user'),
@@ -1138,6 +1145,8 @@ public function edit_anggota($id)
 		$nisn = $this->input->post('nisn');
 		$pangkalan = $this->input->post('pangkalan');
 		$nik = $this->input->post('nik');
+		$kta_sipa = $this->input->post('kta_sipa');
+		$kelas = $this->input->post('kelas');
 		$emoney = $this->input->post('emoney');
 		$old_image = $this->input->post('old_image');
 
@@ -1259,6 +1268,8 @@ public function edit_anggota($id)
 				'nisn'  								=> $nisn,
 				'pangkalan'  								=> $pangkalan,
 				'nik'  								=> $nik,
+				'kta_sipa'  								=> $kta_sipa,
+				'kelas'  								=> $kelas,
 				'emoney'  								=> $emoney,
 				'image'	=> $image,
 				);

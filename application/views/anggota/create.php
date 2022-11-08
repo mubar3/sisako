@@ -31,6 +31,12 @@
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
+                    <label>Nomor KTA SIPA &nbsp <a style="font-size:14px; color:lightgreen;"></a></label>
+                    <input type="text" name="kta_sipa" id="nik" class="form-control " placeholder="Nomor">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
                     <label>NISN/NSS/NSM &nbsp <a style="font-size:14px; color:lightgreen;"></a></label>
                     <input type="text" name="nisn" class="form-control" placeholder="NISN/NSS/NSM">
                   </div>
@@ -211,6 +217,7 @@
                   <div class="form-group">
                   <label>Jenis Kelamin</label>
                   <select name="jk" class="form-control">
+                    <option value="">Pilih</option>
                     <option value="1">Laki-laki</option>
                     <option value="2">Perempuan</option>
                   </select>
@@ -221,6 +228,7 @@
                   <div class="form-group">
                   <label>Status Perkawinan</label>
                   <select name="status_perkawinan" class="form-control">
+                    <option value="">Pilih</option>
                     <?php
                         foreach($status_perkawinan as $status){
                         echo '<option value='.$status->id.'>'.$status->status.'</option>';
@@ -280,7 +288,7 @@
                 <div class="col-lg-6">
                  <div class="form-group">
                    <label>Upload Foto</label>
-                   <input required type="file" name="upload_foto" class="form-control" id="image-source" onchange="previewImage();">
+                   <input type="file" name="upload_foto" class="form-control" id="image-source" onchange="previewImage();">
                    <!-- <input type="hidden" id="image" name="image"> -->
                    <!-- onchange="previewImage();" -->
                    <!-- <input required type="file" name="image" multiple="false" class="form-control" id="image-src"> -->

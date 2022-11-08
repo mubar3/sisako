@@ -21,8 +21,14 @@
 
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label>NIK &nbsp <a style="font-size:14px; color:lightgreen;">(Wajib di isi)</a></label>
-                    <input type="text" name="nik" id="nik" class="form-control required" placeholder="NIK" value="<?php echo $e->nik?>" minlength="16" maxlength="16">
+                    <label>NIK &nbsp</label>
+                    <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" value="<?php echo $e->nik?>" minlength="16" maxlength="16">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Nomor KTA SIPA &nbsp <a style="font-size:14px; color:lightgreen;"></a></label>
+                    <input type="text" name="kta_sipa" id="nik" class="form-control " value="<?php echo $e->kta_sipa?>" placeholder="Nomor">
                   </div>
                 </div>
 
@@ -53,6 +59,22 @@
                     <input type="text" name="nama_belakang" class="form-control" placeholder="Nama Belakang" value="<?php echo $e->nama_belakang?>" required>
                   </div>
                 </div> -->
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                  <label>Kelas</label>
+                  <select name="kelas" class="form-control">
+                    <option >Pilih Kelas</option>
+                    <?php
+                        foreach($kelas as $kelas){
+                          $selected='';
+                        if ($e->kelas==$kelas->id_kelas) {$selected="selected";}
+                        echo '<option value='.$kelas->id_kelas.' '.$selected.'>'.$kelas->nama_kelas.'</option>';
+                        }
+                        ?>
+                  </select>
+                  </div>
+                </div>
 
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -210,6 +232,7 @@
                   <div class="form-group">
                   <label>Jenis Kelamin</label>
                   <select name="jk" class="form-control">
+                    <option value="">Pilih</option>
                     <option value="1" <?php if ($e->jk==1) {echo "selected";} ?> >Laki-laki</option>
                     <option value="2" <?php if ($e->jk==2) {echo "selected";} ?> >Perempuan</option>
                   </select>
@@ -220,6 +243,7 @@
                   <div class="form-group">
                   <label>Status Perkawinan</label>
                   <select name="status_perkawinan" class="form-control">
+                    <option value="">Pilih</option>
                     <option value="Kawin" <?php if ($e->status_perkawinan=="Kawin") {echo "selected";} ?> >Kawin</option>
                     <option value="Belum Kawin" <?php if ($e->status_perkawinan=="Belum Kawin") {echo "selected";} ?> >Belum Kawin</option>
                     <option value="Cerai Hidup" <?php if ($e->status_perkawinan=="Cerai Hidup") {echo "selected";} ?> >Cerai Hidup</option>
