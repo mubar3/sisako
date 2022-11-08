@@ -303,6 +303,39 @@ class Welcome extends CI_Controller {
 						'no_gudep' => $address,
 						'tb_pramuka.emoney' => 1,
 					);
+			}elseif ($role==6) {
+				$where = array(
+						// 'admin' => $idku,
+						// 'visible' => 1,
+					);
+				// $where = array(
+				// 	'provinsi' => $provinsi,
+				// 	// 'visible' => 1,
+				// );
+				$limit = array(
+					'provinsi' => $address,
+					// 'visible' => 1,
+					'aktif' => 1,
+				);
+				$bin = array(
+					'provinsi' => $address,
+					'visible' => 0,
+				);
+				$temp = array(
+					'provinsi' => $address,
+					// 'visible' => 1,
+					'aktif' => 0,
+				);
+				$today = array(
+					'provinsi' => $address,
+					'DATE(waktu)' => $timestamp,
+					'aktif' => 1,
+				);
+				$emoney = array(
+					'provinsi' => $address,
+					'tb_anggota.emoney' => 1,
+					'visible' => 1,
+				);
 			}
 			$data_session = array(
 				'nama' => $username,

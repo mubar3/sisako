@@ -22,6 +22,9 @@ class UsersController extends CI_Controller {
 		$address = array(
                     'users.role >' => $this->session->userdata('role'),
                 );
+        if($this->session->userdata('role')==6){
+            $address=array();
+        }
         // print_r($address);
         // die();
  	 	$where= array(
@@ -699,7 +702,13 @@ public function import_dataa()
 
   public function tambah_user()
   {
-		$role = $this->db->where('id >', $this->session->userdata('role'))->get('tb_role')->result();
+        $address = array(
+            'id >' => $this->session->userdata('role'),
+        );
+        if($this->session->userdata('role')==6){
+            $address=array();
+        }
+		$role = $this->db->where($address)->get('tb_role')->result();
 		$province = $this->db->get('province')->result();
 		$regencies = $this->db->get('regencies')->result();
 		$data = array(
@@ -732,6 +741,7 @@ public function import_dataa()
 		$instansi = $this->input->post('instansi');
 		$provinsi = $this->input->post('provinsi');
 		$kabupaten = $this->input->post('kabupaten');
+		$kecamatan = $this->input->post('kecamatan');
 		$email = $this->input->post('email');
 		date_default_timezone_set("Asia/Jakarta");
 		$date = date('Y-m-d H:i:s');
@@ -756,6 +766,7 @@ public function import_dataa()
 				'instansi'			=> $instansi,
 				'provinsi'  						=> $provinsi,
 				'kabupaten'  						=> $kabupaten,
+				'kecamatan'  						=> $kecamatan,
 				'email'  		=> $email,
 				// 'created_at'  => $date,
 				// 'updated_at'  => $date,
@@ -778,6 +789,7 @@ public function import_dataa()
 					'instansi'			=> $instansi,
 					'provinsi'  						=> $provinsi,
 					'kabupaten'  						=> $kabupaten,
+					'kecamatan'  						=> $kecamatan,
 					'email'  		=> $email,
 					// 'email'  		=> $email,
 					// 'created_at'  => $date,
@@ -838,6 +850,7 @@ public function import_dataa()
 		$edit_user = $this->m_users->edit_data($where,'users')->result();
 		$province = $this->db->get('province')->result();
 		$regencies = $this->db->get('regencies')->result();
+		$districts = $this->db->get('districts')->result();
 		// $kabupaten = $this->m_anggota->read_all()->result();
 
 		$data = array(
@@ -846,6 +859,7 @@ public function import_dataa()
 			'role' => $role,
 			'province' => $province,
 			'regencies' => $regencies,
+			'districts' => $districts,
 			// 'kabupaten' => $kabupaten,
 
 		);
@@ -905,6 +919,7 @@ public function import_dataa()
 		$instansi = $this->input->post('instansi');
 		$provinsi = $this->input->post('provinsi');
 		$kabupaten = $this->input->post('kabupaten');
+		$kecamatan = $this->input->post('kecamatan');
 		$username = $this->input->post('username');
 		$pass = md5($this->input->post('pass'));
 		// $pass = md5($this->input->post('pass'));
@@ -934,6 +949,7 @@ public function import_dataa()
 				'instansi'			=> $instansi,
 				'provinsi'  						=> $provinsi,
 				'kabupaten'  						=> $kabupaten,
+				'kecamatan'  						=> $kecamatan,
 				'instansi'			=> $instansi,
 				// 'email'  		=> $email,
 				// 'updated_at'    => $date
@@ -961,6 +977,7 @@ public function import_dataa()
 				'instansi'			=> $instansi,
 				'provinsi'  						=> $provinsi,
 				'kabupaten'  						=> $kabupaten,
+				'kecamatan'  						=> $kecamatan,
 				'instansi'			=> $instansi,
 				// 'email'  		=> $email,
 				// 'updated_at'    => $date

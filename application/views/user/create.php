@@ -72,6 +72,15 @@
               </div>
             </div>
 
+<div class="col-lg-6">
+  <div class="form-group">
+    <label>Kecamatan </label>
+    <select name="kecamatan" class="form-control" id="kecamatan">
+      <option>- Pilih Kecamatan -</option>
+    </select>
+  </div>
+</div>
+
                 <div class="box-body col-lg-6">
                   <div class="form-group">
                     <label>Username</label>

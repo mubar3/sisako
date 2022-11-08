@@ -19,6 +19,26 @@ class AnggotaController extends CI_Controller {
 		}
 	}
 
+	public function id_data($id,$level)
+	{
+		// $this->db->select('*')->from('users');
+		if($level == 2){
+			$this->db->join('users u2','u2.provinsi=users.provinsi');
+		}elseif($level == 3){
+			$this->db->join('users u2','u2.kabupaten=users.kabupaten');
+		}elseif($level == 4){
+			$this->db->join('users u2','u2.kecamatan=users.kecamatan');
+		}
+		$data=$this->db->where('users.id_user',$id)->get('users')->result();
+		$user=array();
+		foreach ($data as $value) {
+			// print_r($value->id_user);die();
+			array_push($user,$value->id_user);
+		}
+		return $user;
+		// die();
+	}
+
   public function index()
   {
 		$address = $this->session->userdata('where');
@@ -26,8 +46,14 @@ class AnggotaController extends CI_Controller {
 			'aktif' => 1,
 			'visible' => 1,
 		);
-		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
-		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where['admin']=$this->session->userdata('idku');
+		}
+		$anggota =$this->m_anggota->read_anggota($address,$where,$wherein)->result();
+		$total = $this->m_anggota->read_anggota($address,$where,$wherein)->num_rows();
 		$data=array(
 					'title' => 'Data Anggota Sudah Verifikasi',
 					'anggota' => $anggota,
@@ -48,10 +74,14 @@ class AnggotaController extends CI_Controller {
 		$where= array(
 			'visible' => 1,
 		);
-		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
-		// print_r($anggota);
-		// die();
-		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where['admin']=$this->session->userdata('idku');
+		}
+		$anggota =$this->m_anggota->read_anggota($address,$where,$wherein)->result();
+		$total = $this->m_anggota->read_anggota($address,$where,$wherein)->num_rows();
 
 		$data=array(
 					'title'=>'Data Anggota',
@@ -70,8 +100,14 @@ class AnggotaController extends CI_Controller {
 			'aktif' => 1,
 			'tb_pramuka.emoney' => 0,
 		);
-		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
-		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where['admin']=$this->session->userdata('idku');
+		}
+		$anggota =$this->m_anggota->read_anggota($address,$where,$wherein)->result();
+		$total = $this->m_anggota->read_anggota($address,$where,$wherein)->num_rows();
 
 		$data=array(
 					'title'=>'Kartu SISAKO',
@@ -90,8 +126,14 @@ class AnggotaController extends CI_Controller {
 			'aktif' => 1,
 			'tb_pramuka.emoney' => 1,
 		);
-		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
-		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where['admin']=$this->session->userdata('idku');
+		}
+		$anggota =$this->m_anggota->read_anggota($address,$where,$wherein)->result();
+		$total = $this->m_anggota->read_anggota($address,$where,$wherein)->num_rows();
 
 		$data=array(
 					'title'=>'Kartu SIPA & SISAKO',
@@ -110,8 +152,14 @@ class AnggotaController extends CI_Controller {
 			'aktif' => 1,
 			'tb_pramuka.emoney' => 2,
 		);
-		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
-		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where['admin']=$this->session->userdata('idku');
+		}
+		$anggota =$this->m_anggota->read_anggota($address,$where,$wherein)->result();
+		$total = $this->m_anggota->read_anggota($address,$where,$wherein)->num_rows();
 
 		$data=array(
 					'title'=>'Kartu Emoney',
@@ -128,8 +176,14 @@ class AnggotaController extends CI_Controller {
 		$where= array(
 			'visible' => 0,
 		);
-		$anggota =$this->m_anggota->read_anggota($address,$where)->result();
-		$total = $this->m_anggota->read_anggota($address,$where)->num_rows();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where['admin']=$this->session->userdata('idku');
+		}
+		$anggota =$this->m_anggota->read_anggota($address,$where,$wherein)->result();
+		$total = $this->m_anggota->read_anggota($address,$where,$wherein)->num_rows();
 
 		$data=array(
 					'title'=>'Data Ditolak',
@@ -155,7 +209,14 @@ class AnggotaController extends CI_Controller {
 	public function emoney()
   {
 		$where = $this->session->userdata('emoney');
-		$anggota = $this->m_anggota->read_anggota($where)->result();
+		$where2= array();
+		$wherein='';
+		if($this->session->userdata('role')==2 && $this->session->userdata('role')==3 && $this->session->userdata('role')==4 ){
+			$wherein=$this->id_data($this->session->userdata('idku'),$this->session->userdata('role'));
+		}if($this->session->userdata('role')==5 ){
+			$where2['admin']=$this->session->userdata('idku');
+		}
+		$anggota = $this->m_anggota->read_anggota($where,$where2,$wherein)->result();
 
 		$data=array(
 			'title'=>'Kartu Emoney',

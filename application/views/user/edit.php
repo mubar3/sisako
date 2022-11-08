@@ -75,6 +75,18 @@
               </div>
             </div>
 
+<div class="col-lg-6">
+  <div class="form-group">
+    <label>Kecamatan </label>
+    <select name="kecamatan" class="form-control" id="kecamatan">
+			               <option value='' >- Select Kecamatan -</option>
+      <?php foreach ($districts as $r) { ?>
+        <option value="<?php echo $r->id ?>" <?php if ($eu->kecamatan == $r->id){echo "selected";} ?>><?php echo $r->nama ?></option>
+      <?php } ?>
+    </select>
+  </div>
+</div>
+
                 <div class="box-body col-lg-6">
                   <div class="form-group">
                     <label>Username</label>
