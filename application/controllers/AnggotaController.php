@@ -1028,7 +1028,7 @@ public function edit_anggota($id)
 		//$edit = $this->m_anggota->edit_data($where,'tb_anggota')->result();
 
   		//$edit_prop = $this->m_anggota->edit_data(array('no_anggota' => $no_anggota),'tb_anggota_properti')->result_array();
-		$edit = $this->m_anggota->read_anggota($where,$where,$where)->result();
+		$edit = $this->m_anggota->read_anggota($where,$where)->result();
 
   		$jk = $this->db->get('tb_jk')->result();
 			$golongan = $this->db->get('tb_golongan')->result();
