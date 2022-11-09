@@ -23,7 +23,9 @@ class UsersController extends CI_Controller {
                     'users.role >' => $this->session->userdata('role'),
                 );
         if($this->session->userdata('role')==6){
-            $address=array();
+            $address=array(
+                'users.role <' => $this->session->userdata('role'),
+            );
         }
         // print_r($address);
         // die();
@@ -499,6 +501,7 @@ public function import_dataa()
                     "print"=> 0,
                     "visible"=> 1,
                     "emoney"=> $rowData[0][30],
+                    "kta_sipa"=> $rowData[0][31],
                     "status_perkawinan"=> $rowData[0][18],
                     "admin"=>$this->session->userdata('id_user')
                 );
