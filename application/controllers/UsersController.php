@@ -17,10 +17,36 @@ class UsersController extends CI_Controller {
 		}
 	}
 
+	public function id_data($id,$level)
+	{
+		// $this->db->select('*')->from('users');
+		if($level == 2){
+			$this->db->join('users u2','u2.provinsi=users.provinsi');
+		}elseif($level == 3){
+			$this->db->join('users u2','u2.kabupaten=users.kabupaten');
+		}elseif($level == 4){
+			$this->db->join('users u2','u2.kecamatan=users.kecamatan');
+		}
+		$data=$this->db->where('users.id_user',$id)->get('users')->result();
+		$user=array();
+		foreach ($data as $value) {
+			// print_r($value->id_user);die();
+			array_push($user,$value->id_user);
+		}
+		return $user;
+		// die();
+	}
+
 	public function index()
   {
+        $wherein='';
+        if($this->session->userdata('role')==2 || $this->session->userdata('role')==3 || $this->session->userdata('role')==4 ){
+            $wherein=$this->id_data($this->session->userdata('id_user'),$this->session->userdata('role'));
+        }
+        // print_r($wherein);die();
 		$address = array(
                     'users.role >' => $this->session->userdata('role'),
+                    'users.role <' => 6,
                 );
         if($this->session->userdata('role')==6){
             $address=array(
@@ -33,7 +59,7 @@ class UsersController extends CI_Controller {
  		 	'visible' => 1,
  		 	'aktif' => 0,
  	 	);
-		$user = $this->m_users->tampil_data($address)->result();
+		$user = $this->m_users->tampil_data($address,$wherein)->result();
 		$cek = $this->m_users->cek_jumlah("users")->num_rows();
 		$ceksampah = $this->m_users->cek_jumlah_sampah()->num_rows();
 		$data = array(

@@ -2,17 +2,19 @@
 
 class m_users extends CI_Model
 {
-	function tampil_data($address)
+	function tampil_data($address,$wherein='')
 	{
-		$this->db->select("users.*,tb_role.role,regencies.nama AS kabupaten,province.nama AS provinsi")
-    ->from("users")
-		->where($address)
+	$this->db->select("users.*,tb_role.role,regencies.nama AS kabupaten,province.nama AS provinsi")
+    	->from("users")
+		->where($address);
 		// ->where("users.status","1")
-		->join('regencies','users.kabupaten = regencies.id','left')
-    ->join('province','users.provinsi = province.id','left')
+		if($wherein != ''){$this->db->where_in('users.id_user',$wherein);}
+	$this->db->join('regencies','users.kabupaten = regencies.id','left')
+    	->join('province','users.provinsi = province.id','left')
 		->join('tb_role','users.role = tb_role.id','left');
-
 	    $query = $this->db->get();
+		// print_r($this->db->last_query());die();
+		// print_r($wherein);die();
 	    return $query;
 	}
 

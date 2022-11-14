@@ -50,16 +50,18 @@ class M_Anggota extends CI_Model
 		->from('tb_pramuka')
 		->where($address)
 		->where($where);
-	if($wherein != ''){$this->db->wherein($where);}
+	if($wherein !='' ){
+		// print_r($wherein);die();
+		$this->db->where_in('tb_pramuka.admin',$wherein);} 
 	$this->db->order_by('waktu', 'DESC')
-		->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')
-		->join('tb_agama','tb_pramuka.agama = tb_agama.id','left')
-		->join('tb_golongan','tb_pramuka.golongan = tb_golongan.id','left')
-		->join('tb_kelas','tb_pramuka.kelas = tb_kelas.id_kelas','left')
-
-
-		// ->join('tb_status','tb_anggota.status = tb_status.id','left')
-		// ->join('tb_banom','tb_anggota.banom = tb_banom.id','left')
+	->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')
+	->join('tb_agama','tb_pramuka.agama = tb_agama.id','left')
+	->join('tb_golongan','tb_pramuka.golongan = tb_golongan.id','left')
+	->join('tb_kelas','tb_pramuka.kelas = tb_kelas.id_kelas','left')
+	
+	
+	// ->join('tb_status','tb_anggota.status = tb_status.id','left')
+	// ->join('tb_banom','tb_anggota.banom = tb_banom.id','left')
 		// ->join('tb_pekerjaan','tb_anggota.pekerjaan = tb_pekerjaan.id','left')
 		// ->join('tb_jamkes','tb_anggota.jamkes = tb_jamkes.id','left')
 		// ->join('tb_pendidikan','tb_anggota.pendidikan = tb_pendidikan.id','left')
@@ -67,27 +69,28 @@ class M_Anggota extends CI_Model
 		// ->join('tb_rumah','tb_anggota.rumah = tb_rumah.id','left')
 		// ->join('tb_penyakit','tb_anggota.penyakit = tb_penyakit.id','left')
 		// ->join('tb_disabilitas','tb_anggota.disabilitas = tb_disabilitas.id','left')
-    ->join('villages','tb_pramuka.desa = villages.id','left')
-    ->join('districts','tb_pramuka.kecamatan= districts.id','left')
-    ->join('regencies','tb_pramuka.kabupaten = regencies.id','left')
-    ->join('province','tb_pramuka.provinsi = province.id','left')
+		->join('villages','tb_pramuka.desa = villages.id','left')
+		->join('districts','tb_pramuka.kecamatan= districts.id','left')
+		->join('regencies','tb_pramuka.kabupaten = regencies.id','left')
+		->join('province','tb_pramuka.provinsi = province.id','left')
 		->join('tb_emoney','tb_pramuka.emoney = tb_emoney.id','left');
-
+		
 		$query = $this->db->get();
-			return $query;
+		// print_r($this->db->last_query());die();
+		return $query;
 	}
-
+	
 	function read_qr($where){
-    $this->db->select('tb_pramuka.id AS id,no_gudep,nama_depan,tb_agama.agama AS agama,golongan_darah, tempat_lahir,tanggal_lahir,usia,no_hp,alamat,tb_jk.jk AS jk,villages.nama AS desa,districts.nama AS kecamatan,regencies.nama AS kabupaten,province.nama AS provinsi,waktu ,nama_organisasi1,status_perkawinan,jabatan1,tahun1,nama_organisasi2,jabatan2,tahun2,nama_organisasi3,jabatan3,tahun3,aktif,tb_golongan.golongan AS golongan,aktifitas_organisasi,image,qr_code,nia,nisn,pangkalan,print,nik,rt,rw,visible,tb_emoney.emoney AS emoney')
+		$this->db->select('tb_pramuka.id AS id,no_gudep,nama_depan,tb_agama.agama AS agama,golongan_darah, tempat_lahir,tanggal_lahir,usia,no_hp,alamat,tb_jk.jk AS jk,villages.nama AS desa,districts.nama AS kecamatan,regencies.nama AS kabupaten,province.nama AS provinsi,waktu ,nama_organisasi1,status_perkawinan,jabatan1,tahun1,nama_organisasi2,jabatan2,tahun2,nama_organisasi3,jabatan3,tahun3,aktif,tb_golongan.golongan AS golongan,aktifitas_organisasi,image,qr_code,nia,nisn,pangkalan,print,nik,rt,rw,visible,tb_emoney.emoney AS emoney')
 		->from('tb_pramuka')
-// 		->where($address)
+		// 		->where($address)
 		->where($where)
 		->order_by('waktu', 'DESC')
 		->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')
 		->join('tb_agama','tb_pramuka.agama = tb_agama.id','left')
 		->join('tb_golongan','tb_pramuka.golongan = tb_golongan.id','left')
-
-
+		
+		
 		// ->join('tb_status','tb_anggota.status = tb_status.id','left')
 		// ->join('tb_banom','tb_anggota.banom = tb_banom.id','left')
 		// ->join('tb_pekerjaan','tb_anggota.pekerjaan = tb_pekerjaan.id','left')
