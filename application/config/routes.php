@@ -65,6 +65,7 @@ $route['Dashboard/admin'] = 'DashboardController';
 $route['char'] = 'DashboardController/chart';
  $route['Dashboard/admin/banom'] = 'DashboardController/statistik_banom';
 $route['Dashboard/admin/v2'] = 'DashboardController/dashbordv2';
+$route['Dashboard/admin/cd'] = 'DashboardController/changedata';
 
 $route['public/anggota'] = 'PublicController';
 $route['check'] = 'PublicController/check';

@@ -18,6 +18,17 @@ class DashboardController extends CI_Controller {
 		}
 	}
 
+    public function changedata()
+    {
+        $where = array(
+            'admin' => $this->input->post('users')
+        );
+        $this->session->set_userdata('where', $where);
+        $this->session->set_userdata('users_id', $this->input->post('users'));
+
+        redirect('Dashboard/admin/');
+    }
+
 	public function index()
 	{
 		$date = new DateTime("now");
@@ -115,6 +126,7 @@ class DashboardController extends CI_Controller {
         $data['golongan'] = $this->m_dashboard->get_golongan();
         $data['jk'] = $this->m_dashboard->get_jk();
         $data['emoney'] = $this->m_dashboard->get_emoney();
+        $data['users'] = $this->db->get('users')->result();
 		$this->load->view('layout/wrapper', $data);
 	}
 

@@ -4,7 +4,7 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-
+        
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
@@ -68,8 +68,25 @@
           </div>
         </div>
         <!-- ./col -->
-
-
+      <?php if($this->session->userdata('role') == 6){ ?>
+      <section class="col-lg-12">
+        <form  role="form" action="<?php echo base_url('Dashboard/admin/cd'); ?>" method="post" autocomplete="off" enctype="multipart/form-data">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <select name="users" class="form-control" required>
+                        <option value="">INSTANSI</option>
+                        <?php foreach ($users as $data) {
+                            $selected='';
+                            if(!empty($this->session->userdata('users_id')) && $this->session->userdata('users_id') == $data->id_user){$selected='selected';}
+                            echo '<option value="'.$data->id_user.'" '.$selected.'>'.$data->instansi.'</option>';
+                        }?>
+                    </select>
+                    <center><button type="submit" name="cari_user" class="input-group-text"><span  id="">Cari</span></button></center>
+                </div>
+            </div>
+        </form>
+      </div>
+      <?php } ?>
       <section class="col-lg-12">
           <div class="box">
             <div class="box-header">
