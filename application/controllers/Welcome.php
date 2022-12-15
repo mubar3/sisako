@@ -70,7 +70,7 @@ class Welcome extends CI_Controller {
 		 	$where = array('nia' => $id);
 		 	$edit = $this->m_anggota->read_qr($where)->result();
 		 }
-		 // print_r($edit);
+		//  print_r($edit); die();
 
 			 $status = $this->db->get('tb_status')->result();
 			 $banom = $this->db->get('tb_banom')->result();
