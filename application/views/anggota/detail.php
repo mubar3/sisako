@@ -105,6 +105,12 @@
                     </tr>
 
                     <tr>
+                      <td width="20%">Nomor KTA SIPA</td>
+                      <td width="10px">:</td>
+                      <td ><?php echo $e->kta_sipa?></td>
+                    </tr>
+
+                    <tr>
                       <td width="20%">NIK</td>
                       <td width="10px">:</td>
                        <td ><?php echo $e->nik?></td>
@@ -126,6 +132,12 @@
                       <td width="20%">Nama</td>
                       <td width="10px">:</td>
                        <td ><?php echo $e->nama_depan?></td>
+                    </tr>
+
+                    <tr>
+                      <td width="20%">No Hp</td>
+                      <td width="10px">:</td>
+                       <td ><?php echo $e->no_hp?></td>
                     </tr>
 
                     <tr>
