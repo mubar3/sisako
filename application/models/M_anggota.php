@@ -50,11 +50,10 @@ class M_Anggota extends CI_Model
 		->from('tb_pramuka')
 		->where($address)
 		->where($where);
-	if($wherein !='' ){
-		// print_r($wherein);die();
-		if($wherein != ''){
-			$this->db->where_in('tb_pramuka.admin',$wherein);} 
-		}
+		if($wherein != '' && count($wherein) > 0 ){
+			// print_r($wherein);die();
+				$this->db->where_in('tb_pramuka.admin',$wherein); 
+			}
 	$this->db->order_by('waktu', 'DESC')
 	->join('tb_jk','tb_pramuka.jk = tb_jk.id','left')
 	->join('tb_agama','tb_pramuka.agama = tb_agama.id','left')
